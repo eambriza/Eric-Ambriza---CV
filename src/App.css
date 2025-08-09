@@ -1,4 +1,61 @@
-/* Minimal tweaks for Header controls */
+/* Modern base theme */
+:root {
+  --bg: #0b1220;
+  --surface: rgba(255, 255, 255, 0.06);
+  --text: #e8edf5;
+  --muted: #a6b0c3;
+  --accent: #7c3aed;
+  --accent-2: #06b6d4;
+}
+
+[data-theme="light"] {
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --accent: #7c3aed;
+  --accent-2: #0891b2;
+}
+
+html, body, #root, .App {
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--text);
+}
+
+/* Buttons */
 .button.btn {
   margin-left: 10px;
+  border: none;
+  background-image: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: white !important;
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.button.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(6, 182, 212, 0.35);
+}
+
+/* Card-like surfaces (portfolio items, etc.) */
+.item-wrap, .main-col, .widget, .bars {
+  background: var(--surface);
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+}
+
+/* Improve readability for paragraph text */
+p, .lead {
+  color: var(--muted);
 }

@@ -14,7 +14,24 @@ class Header extends Component {
       "fountain",
       "random"
     ];
-    this.state = { particleIndex: 0 };
+    this.state = { particleIndex: 0, theme: 'dark' };
+  }
+
+  componentDidMount() {
+    const savedTheme = localStorage.getItem('theme');
+    const theme = savedTheme || 'dark';
+    this.applyTheme(theme);
+  }
+
+  applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    this.setState({ theme });
+  }
+
+  toggleTheme = () => {
+    const next = this.state.theme === 'dark' ? 'light' : 'dark';
+    this.applyTheme(next);
   }
 
   cycleParticles = () => {
@@ -97,6 +114,9 @@ class Header extends Component {
               </a>
               <button className="button btn" onClick={this.cycleParticles}>
                 Change Background
+              </button>
+              <button className="button btn" onClick={this.toggleTheme}>
+                Toggle {this.state.theme === 'dark' ? 'Light' : 'Dark'} Mode
               </button>
             </ul>
           </div>
