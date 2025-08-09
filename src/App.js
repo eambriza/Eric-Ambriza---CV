@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ReactGA from 'react-ga';
-import $ from 'jquery';
 import './App.css';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
@@ -17,25 +15,18 @@ class App extends Component {
       foo: 'bar',
       resumeData: {}
     };
-
-    ReactGA.initialize('UA-110570651-1');
-    ReactGA.pageview(window.location.pathname);
-
   }
 
-  getResumeData(){
-    $.ajax({
-      url:'./resumeData.json',
-      dataType:'json',
-      cache: false,
-      success: function(data){
-        this.setState({resumeData: data});
-      }.bind(this),
-      error: function(xhr, status, err){
-        console.log(err);
-        alert(err);
-      }
-    });
+  async getResumeData(){
+    try {
+      const response = await fetch('./resumeData.json', { cache: 'no-store' });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      this.setState({ resumeData: data });
+    } catch (err) {
+      console.log(err);
+      alert(err);
+    }
   }
 
   componentDidMount(){

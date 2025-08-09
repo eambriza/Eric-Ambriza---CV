@@ -2,6 +2,27 @@ import React, { Component } from "react";
 import ParticlesBg from "particles-bg";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.particleTypes = [
+      "lines",
+      "circle",
+      "cobweb",
+      "polygon",
+      "square",
+      "tadpole",
+      "fountain",
+      "random"
+    ];
+    this.state = { particleIndex: 0 };
+  }
+
+  cycleParticles = () => {
+    this.setState(({ particleIndex }) => ({
+      particleIndex: (particleIndex + 1) % this.particleTypes.length,
+    }));
+  };
+
   render() {
     if (this.props.data) {
       var project = this.props.data.project;
@@ -20,9 +41,11 @@ class Header extends Component {
       });
     }
 
+    const particleType = this.particleTypes[this.state.particleIndex];
+
     return (
       <header id="home">
-        <ParticlesBg type="lines" bg={true} />
+        <ParticlesBg type={particleType} bg={true} />
         <nav id="nav-wrap">
           <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
             Show navigation
@@ -72,6 +95,9 @@ class Header extends Component {
               <a href={github} className="button btn github-btn">
                 <i className="fa fa-github"></i>Github
               </a>
+              <button className="button btn" onClick={this.cycleParticles}>
+                Change Background
+              </button>
             </ul>
           </div>
         </div>
