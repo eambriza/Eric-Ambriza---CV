@@ -1,47 +1,60 @@
-import React, { Component } from 'react';
+import React, { useMemo, useState } from 'react';
 
-class Portfolio extends Component {
-  render() {
+function uniqueCategories(projects) {
+  const set = new Set(projects.map(p => (p.category || 'Other').split(/[,/]/)[0].trim()));
+  return ['All', ...Array.from(set).sort()];
+}
 
-    if (this.props.data) {
-      var projects = this.props.data.projects.map(function (projects) {
-        var projectImage = 'images/portfolio/' + projects.image;
-        
-        return (
-          <div key={projects.title} className="columns portfolio-item">
-            <div className="item-wrap">
-              <a href={projects.url} title={projects.title}>
-                <img alt={projects.title} src={projectImage} />
-                <div className="overlay">
-                  <div className="portfolio-item-meta">
-                    <h5>{projects.title}</h5>
-                    <p>{projects.category}</p>
-                  </div>
-                </div>
-              </a>
-            </div>
+const Portfolio = ({ data }) => {
+  const projects = (data && data.projects) || [];
+  const categories = useMemo(() => uniqueCategories(projects), [projects]);
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filtered = useMemo(() => {
+    if (activeCategory === 'All') return projects;
+    return projects.filter(p => (p.category || '').toLowerCase().includes(activeCategory.toLowerCase()));
+  }, [projects, activeCategory]);
+
+  return (
+    <section id="portfolio">
+      <div className="row">
+        <div className="twelve columns collapsed">
+          <h1>Recent Work</h1>
+
+          <div className="portfolio-filters">
+            {categories.map(cat => (
+              <button
+                key={cat}
+                className={`button btn ${cat === activeCategory ? 'active' : ''}`}
+                onClick={() => setActiveCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
-        )
-      })
-    }
 
-    return (
-      <section id="portfolio">
-
-        <div className="row">
-
-          <div className="twelve columns collapsed">
-
-            <h1>Check Out Some of My Works.</h1>
-
-            <div id="portfolio-wrapper" className="bgrid-quarters s-bgrid-thirds cf">
-              {projects}
-            </div>
+          <div className="portfolio-grid">
+            {filtered.map(project => {
+              const projectImage = 'images/portfolio/' + project.image;
+              return (
+                <article key={project.title} className="portfolio-card">
+                  <a href={project.url} title={project.title} target="_blank" rel="noreferrer">
+                    <div className="thumb-wrap">
+                      <img alt={project.title} src={projectImage} loading="lazy" />
+                    </div>
+                    <div className="meta">
+                      <h5>{project.title}</h5>
+                      <p>{project.category}</p>
+                    </div>
+                  </a>
+                </article>
+              );
+            })}
           </div>
         </div>
-      </section>
-    );
-  }
-}
+      </div>
+    </section>
+  );
+};
 
 export default Portfolio;
