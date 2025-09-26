@@ -1,21 +1,28 @@
 {
-  "name": "personalportfolio",
-  "version": "0.1.0",
-  "homepage": "./",
+  "name": "eric-ambriza-cv",
+  "version": "0.2.0",
   "private": true,
-  "dependencies": {
-    "anix": "^0.3.3",
-    "jquery": "^3.2.1",
-    "particles-bg": "^2.3.12",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-ga": "^2.3.5",
-    "react-scripts": "1.0.17"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "framer-motion": "^10.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "autoprefixer": "^10.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0",
+    "postcss": "^8.0.0",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5.0.0"
   }
 }

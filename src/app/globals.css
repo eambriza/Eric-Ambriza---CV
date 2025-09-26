@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Base ---------- */
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-roboto), sans-serif; }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.50ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.04ms !important;
+    }
+  }
+}
+
+/* ---------- Components ---------- */
+@layer components {
+  /* caret for typewriter line */
+  .typing-cursor::after {
+    content: '|';
+    animation: blink 2s step-start infinite;
+    color: #ff7a18;
+    font-weight: 300;
+    margin-left: 2px;
+  }
+
+  .nav-link {
+    @apply text-text-secondary hover:text-text-primary transition-colors duration-200 relative;
+  }
+  .nav-link.active { @apply text-text-primary; }
+  .nav-link.active::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-accent-orange;
+  }
+
+  .contact-button {
+    @apply border border-text-secondary text-text-secondary
+           hover:border-accent-orange hover:text-accent-orange
+           transition-colors duration-200 px-4 py-2 rounded;
+  }
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
