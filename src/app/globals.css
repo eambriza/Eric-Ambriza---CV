@@ -4,12 +4,30 @@
 
 /* ---------- Base ---------- */
 @layer base {
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--font-roboto), sans-serif; }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-roboto), sans-serif;
+  }
+
+  /* Hide scrollbars but keep scroll functionality */
+  * {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+
+  *::-webkit-scrollbar {
+    display: none; /* WebKit browsers (Chrome, Safari, Edge) */
+  }
 
   /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
+    html {
+      scroll-behavior: auto;
+    }
+
     *,
     *::before,
     *::after {
@@ -22,6 +40,7 @@
 
 /* ---------- Components ---------- */
 @layer components {
+
   /* caret for typewriter line */
   .typing-cursor::after {
     content: '|';
@@ -31,24 +50,80 @@
     margin-left: 2px;
   }
 
+  /* Glitch text animation */
+  .glitch-text {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .glitch-text::before {
+    animation: glitch-1 3s infinite;
+    color: #22d3ee;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+  
+  .glitch-text::after {
+    animation: glitch-2 3s infinite;
+    color: #e879f9;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  }
+
   .nav-link {
     @apply text-text-secondary hover:text-text-primary transition-colors duration-200 relative;
   }
-  .nav-link.active { @apply text-text-primary; }
+
+  .nav-link.active {
+    @apply text-text-primary;
+  }
+
   .nav-link.active::after {
     content: '';
     @apply absolute bottom-0 left-0 w-full h-0.5 bg-accent-orange;
   }
 
   .contact-button {
-    @apply border border-text-secondary text-text-secondary
-           hover:border-accent-orange hover:text-accent-orange
-           transition-colors duration-200 px-4 py-2 rounded;
+    @apply border border-text-secondary text-text-secondary hover:border-accent-orange hover:text-accent-orange transition-colors duration-200 px-4 py-2 rounded;
   }
 }
 
 /* ---------- Keyframes ---------- */
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  50.01%, 100% { opacity: 0; }
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes glitch-1 {
+  0%, 14%, 15%, 49%, 50%, 99%, 100% {
+    transform: translate(0);
+  }
+  15%, 49% {
+    transform: translate(-2px, -1px);
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 20%, 21%, 62%, 63%, 99%, 100% {
+    transform: translate(0);
+  }
+  21%, 62% {
+    transform: translate(2px, 1px);
+  }
 }

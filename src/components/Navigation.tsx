@@ -20,7 +20,7 @@ export default function Navigation() {
       </Link>
 
       {/* Right: Navigation items */}
-      <div className="flex items-center space-x-6 md:space-x-8">
+      <div className="flex items-center space-x-6 md:space-x-20">
         {navItems.map((item) => {
           const isActive = pathname === item.href
           const isContact = item.name === 'Contact'

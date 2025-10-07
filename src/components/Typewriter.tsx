@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useLoading } from '@/contexts/LoadingContext'
 
 interface TypewriterProps {
   text: string
@@ -12,9 +13,19 @@ export default function Typewriter({ text, speed = 70, className = '' }: Typewri
   const [displayText, setDisplayText] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
   const [showCursor, setShowCursor] = useState(true)
+  const { hasLoadingFinished } = useLoading()
 
   useEffect(() => {
-    if (currentIndex < text.length) {
+    // Reset animation when loading finishes
+    if (hasLoadingFinished) {
+      setDisplayText('')
+      setCurrentIndex(0)
+    }
+  }, [hasLoadingFinished])
+
+  useEffect(() => {
+    // Only start typing animation after loading finishes
+    if (hasLoadingFinished && currentIndex < text.length) {
       const timeout = setTimeout(() => {
         setDisplayText(prev => prev + text[currentIndex])
         setCurrentIndex(prev => prev + 1)
@@ -22,7 +33,7 @@ export default function Typewriter({ text, speed = 70, className = '' }: Typewri
 
       return () => clearTimeout(timeout)
     }
-  }, [currentIndex, text, speed])
+  }, [currentIndex, text, speed, hasLoadingFinished])
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {
