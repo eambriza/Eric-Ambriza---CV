@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import Typewriter from '@/components/Typewriter'
-import ScrollIndicator from '@/components/ScrollIndicator'
-import { projects } from '@/data/projects'
+import Link from 'next/link';
+import Typewriter from '@/components/Typewriter';
+import ScrollIndicator from '@/components/ScrollIndicator';
+import { projects } from '@/data/projects';
 
 export default function Portfolio() {
   return (
@@ -59,9 +59,7 @@ export default function Portfolio() {
                       <p className="text-accent-orange text-sm font-medium mb-3">
                         {project.category}
                       </p>
-                      <p className="text-text-secondary text-sm leading-relaxed">
-                        {project.blurb}
-                      </p>
+                      <p className="text-text-secondary text-sm leading-relaxed">{project.blurb}</p>
                     </div>
 
                     <div className="flex space-x-4 pt-4">
@@ -91,5 +89,5 @@ export default function Portfolio() {
         </div>
       </div>
     </div>
-  )
+  );
 }

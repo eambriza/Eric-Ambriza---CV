@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main className="relative z-10 flex-1 overflow-y-auto p-10 space-y-12 bg-white/2">
               {children}
             </main>
-            
+
             {/* Footer inside glass container */}
             <Footer />
           </div>

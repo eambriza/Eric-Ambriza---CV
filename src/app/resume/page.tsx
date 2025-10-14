@@ -1,13 +1,12 @@
-import Typewriter from '@/components/Typewriter'
-import ScrollIndicator from '@/components/ScrollIndicator'
-import { workExperience, education, skills } from '@/data/resume'
+import Typewriter from '@/components/Typewriter';
+import ScrollIndicator from '@/components/ScrollIndicator';
+import { workExperience, education, skills } from '@/data/resume';
 
 export default function Resume() {
   return (
     <div>
       {/* Hero Section */}
       <div className="relative flex items-center justify-center min-h-screen">
-
         <div className="text-center space-y-8">
           {/* Main heading */}
           <h1
@@ -51,19 +50,11 @@ export default function Resume() {
               {workExperience.map((job, index) => (
                 <div key={index} className="border-l-2 border-accent-orange pl-6">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-text-primary">
-                      {job.title}
-                    </h3>
-                    <span className="text-text-secondary text-sm">
-                      {job.years}
-                    </span>
+                    <h3 className="text-lg font-semibold text-text-primary">{job.title}</h3>
+                    <span className="text-text-secondary text-sm">{job.years}</span>
                   </div>
-                  <p className="text-accent-orange font-medium mb-3">
-                    {job.company}
-                  </p>
-                  <p className="text-text-secondary leading-relaxed">
-                    {job.description}
-                  </p>
+                  <p className="text-accent-orange font-medium mb-3">{job.company}</p>
+                  <p className="text-text-secondary leading-relaxed">{job.description}</p>
                 </div>
               ))}
             </div>
@@ -79,16 +70,10 @@ export default function Resume() {
               {education.map((edu, index) => (
                 <div key={index} className="border-l-2 border-accent-orange pl-6">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-text-primary">
-                      {edu.degree}
-                    </h3>
-                    <span className="text-text-secondary text-sm">
-                      {edu.graduated}
-                    </span>
+                    <h3 className="text-lg font-semibold text-text-primary">{edu.degree}</h3>
+                    <span className="text-text-secondary text-sm">{edu.graduated}</span>
                   </div>
-                  <p className="text-accent-orange">
-                    {edu.school}
-                  </p>
+                  <p className="text-accent-orange">{edu.school}</p>
                 </div>
               ))}
             </div>
@@ -120,5 +105,5 @@ export default function Resume() {
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 export default function ScrollIndicator() {
   return (
@@ -22,5 +22,5 @@ export default function ScrollIndicator() {
         </div>
       </div>
     </div>
-  )
+  );
 }
