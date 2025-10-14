@@ -1,0 +1,96 @@
+{
+  "defaultLang": "en",
+  "langs": ["en", "pt", "de"],
+  "meta": {
+    "name": {
+      "en": "Eric Ambriza",
+      "pt": "Eric Ambriza", 
+      "de": "Eric Ambriza"
+    },
+    "role": {
+      "en": "Full Stack Developer & Data Analyst",
+      "pt": "Desenvolvedor Full Stack & Analista de Dados",
+      "de": "Full Stack Entwickler & Datenanalyst"
+    }
+  },
+  "nav": {
+    "about": {
+      "en": "About",
+      "pt": "Sobre",
+      "de": "Über"
+    },
+    "skills": {
+      "en": "Skills", 
+      "pt": "Competências",
+      "de": "Fähigkeiten"
+    },
+    "projects": {
+      "en": "Projects",
+      "pt": "Projetos", 
+      "de": "Projekte"
+    },
+    "experience": {
+      "en": "Experience",
+      "pt": "Experiência",
+      "de": "Erfahrung"
+    },
+    "contact": {
+      "en": "Contact",
+      "pt": "Contacto",
+      "de": "Kontakt"
+    }
+  },
+  "hero": {
+    "headline": {
+      "en": "I'M ERIC AMBRIZA",
+      "pt": "EU SOU ERIC AMBRIZA",
+      "de": "ICH BIN ERIC AMBRIZA"
+    },
+    "sub": {
+      "en": "Full Stack Developer & Data Analyst",
+      "pt": "Desenvolvedor Full Stack & Analista de Dados", 
+      "de": "Full Stack Entwickler & Datenanalyst"
+    }
+  },
+  "skills": {
+    "list": [
+      "JavaScript",
+      "TypeScript", 
+      "React",
+      "Next.js",
+      "Node.js",
+      "Python",
+      "SQL",
+      "Data Analysis",
+      "APIs"
+    ]
+  },
+  "experience": [
+    {
+      "company": "Current Role",
+      "title": {
+        "en": "Full Stack Developer & Data Analyst",
+        "pt": "Desenvolvedor Full Stack & Analista de Dados",
+        "de": "Full Stack Entwickler & Datenanalyst"
+      },
+      "period": "2023–present",
+      "bullets": {
+        "en": [
+          "Developed full-stack applications",
+          "Analyzed complex datasets",
+          "Built data visualization tools"
+        ],
+        "pt": [
+          "Desenvolveu aplicações full-stack",
+          "Analisou conjuntos de dados complexos", 
+          "Construiu ferramentas de visualização de dados"
+        ],
+        "de": [
+          "Entwickelte Full-Stack-Anwendungen",
+          "Analysierte komplexe Datensätze",
+          "Baute Datenvisualisierungstools"
+        ]
+      }
+    }
+  ]
+}
