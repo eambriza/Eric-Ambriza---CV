@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 export default function Landing() {
   const [typedText, setTypedText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const fullText = 'Full Stack Developer & Data Analyst';
+  const fullText = 'Project Manager & Data Analyst';
 
   useEffect(() => {
     // Typing animation

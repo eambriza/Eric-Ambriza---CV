@@ -1,46 +1,51 @@
-import Typewriter from '@/components/Typewriter';
-import ScrollIndicator from '@/components/ScrollIndicator';
-import { personalInfo } from '@/data/resume';
+import Typewriter from "@/components/Typewriter";
+import ScrollIndicator from "@/components/ScrollIndicator";
+import { personalInfo } from "@/data/resume";
 
 export default function Contact() {
   return (
     <div>
       {/* Hero Section */}
-      <div className="relative flex items-center justify-center min-h-screen">
-        <div className="text-center space-y-8">
-          {/* Main heading */}
-          <h1
-            className="glitch-text font-mono text-4xl md:text-6xl lg:text-7xl font-bold tracking-widest text-text-primary uppercase"
-            data-text="CONTACT"
-          >
-            CONTACT
-          </h1>
+      <section
+        className="
+          relative
+          min-h-[calc(100svh-var(--frame-inset)-var(--nav-h)-var(--main-py))]
+          px-6
+        "
+      >
+        {/* Main heading centered relative to the whole card, nudged slightly up */}
+        <h1
+          className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2
+                     text-center glitch-text font-mono text-4xl md:text-6xl lg:text-7xl
+                     font-bold tracking-[0.2em] text-text-primary uppercase"
+          style={{ top: "calc(50% - (var(--nav-h) + var(--main-py)) / 2 - 0.25em)" }}
+          data-text="CONTACT"
+        >
+          CONTACT
+        </h1>
 
-          {/* Typing animation line */}
-          <div className="flex items-center justify-center min-h-[2rem]">
-            <div className="h-0.5 bg-accent-orange w-16 md:w-24 lg:w-32 animate-pulse"></div>
-            <span className="ml-2 text-accent-orange text-2xl md:text-3xl font-light animate-pulse">
-              |
-            </span>
-          </div>
-
-          {/* Typed subtitle */}
-          <div className="min-h-[3rem] flex items-center justify-center">
-            <Typewriter
-              text="Let's connect and discuss opportunities"
-              speed={70}
-              className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
-            />
-          </div>
+        {/* Underline + subtitle positioned below the adjusted midline */}
+        <div
+          className="absolute left-1/2 -translate-x-1/2 text-center space-y-6"
+          style={{
+            top:
+              "calc(50% - (var(--nav-h) + var(--main-py)) / 2 - 0.25em + 2.25rem)",
+          }}
+        >
+          <div className="mx-auto h-0.5 w-16 md:w-24 lg:w-32 bg-accent-orange animate-pulse" />
+          <Typewriter
+            text="Let's connect and discuss opportunities"
+            speed={70}
+            className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
+          />
         </div>
-        {/* Scroll Indicator */}
-        <ScrollIndicator />
-      </div>
+
+        <ScrollIndicator className="absolute bottom-8 left-1/2 -translate-x-1/2" />
+      </section>
 
       {/* Content Section */}
       <div className="flex justify-center mt-44 mb-24">
         <div className="w-full max-w-[50%]">
-          {/* Contact Information */}
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Details */}
             <div className="space-y-8">
