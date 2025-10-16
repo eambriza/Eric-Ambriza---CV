@@ -1,10 +1,10 @@
-import { t } from "../i18n.js";
-import { esc } from "../sanitize.js";
+import { t } from '../i18n.js';
+import { esc } from '../sanitize.js';
 
 export function ExperienceCard({ item, lang }) {
   const bullets = (item.bullets?.[lang] || item.bullets?.en || [])
-    .map(b => `<li>${esc(b)}</li>`)
-    .join("");
+    .map((b) => `<li>${esc(b)}</li>`)
+    .join('');
 
   return `
     <article class="exp-card">

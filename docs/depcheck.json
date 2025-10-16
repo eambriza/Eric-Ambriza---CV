@@ -1,0 +1,47 @@
+{
+  "dependencies": ["framer-motion"],
+  "devDependencies": [
+    "@types/node",
+    "@types/react-dom",
+    "autoprefixer",
+    "depcheck",
+    "eslint-config-next",
+    "postcss",
+    "tailwindcss",
+    "ts-prune",
+    "typescript"
+  ],
+  "missing": {},
+  "using": {
+    "next": [
+      "package.json",
+      "src/contexts/LoadingContext.tsx",
+      "src/components/Navigation.tsx",
+      "src/components/Sidebar.tsx",
+      "src/app/layout.tsx",
+      "src/app/projects/page.tsx",
+      "src/app/projects/[slug]/page.tsx",
+      "src/app/projects/[slug]/ProjectPageClient.tsx",
+      "src/app/portfolio/page.tsx",
+      "src/app/portfolio/[slug]/page.tsx"
+    ],
+    "eslint": ["package.json"],
+    "react": [
+      "package.json",
+      "src/hooks/useScrollReveal.ts",
+      "src/contexts/LoadingContext.tsx",
+      "src/components/Navigation.tsx",
+      "src/components/Sidebar.tsx",
+      "src/components/Typewriter.tsx",
+      "src/app/layout.tsx",
+      "src/app/page.tsx",
+      "src/app/projects/page.tsx",
+      "src/app/projects/[slug]/page.tsx",
+      "src/app/projects/[slug]/ProjectPageClient.tsx",
+      "src/app/portfolio/page.tsx",
+      "src/app/portfolio/[slug]/page.tsx"
+    ]
+  },
+  "invalidFiles": {},
+  "invalidDirs": {}
+}

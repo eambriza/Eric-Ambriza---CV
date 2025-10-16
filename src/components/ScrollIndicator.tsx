@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-export default function ScrollIndicator() {
+export default function ScrollIndicator({ className }: { className?: string }) {
   return (
-    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <div className={["pointer-events-none select-none animate-bounce", className].filter(Boolean).join(" ")}>
       <div className="flex flex-col items-center space-y-2">
         <svg
           className="w-6 h-6 text-accent-orange animate-pulse"
@@ -22,5 +22,5 @@ export default function ScrollIndicator() {
         </div>
       </div>
     </div>
-  )
+  );
 }

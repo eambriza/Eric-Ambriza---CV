@@ -4,7 +4,7 @@
   "meta": {
     "name": {
       "en": "Eric Ambriza",
-      "pt": "Eric Ambriza", 
+      "pt": "Eric Ambriza",
       "de": "Eric Ambriza"
     },
     "role": {
@@ -20,13 +20,13 @@
       "de": "Über"
     },
     "skills": {
-      "en": "Skills", 
+      "en": "Skills",
       "pt": "Competências",
       "de": "Fähigkeiten"
     },
     "projects": {
       "en": "Projects",
-      "pt": "Projetos", 
+      "pt": "Projetos",
       "de": "Projekte"
     },
     "experience": {
@@ -40,6 +40,13 @@
       "de": "Kontakt"
     }
   },
+  "sections": {
+    "experience": {
+      "en": "Experience",
+      "pt": "Experiência",
+      "de": "Erfahrung"
+    }
+  },
   "hero": {
     "headline": {
       "en": "I'M ERIC AMBRIZA",
@@ -48,14 +55,14 @@
     },
     "sub": {
       "en": "Full Stack Developer & Data Analyst",
-      "pt": "Desenvolvedor Full Stack & Analista de Dados", 
+      "pt": "Desenvolvedor Full Stack & Analista de Dados",
       "de": "Full Stack Entwickler & Datenanalyst"
     }
   },
   "skills": {
     "list": [
       "JavaScript",
-      "TypeScript", 
+      "TypeScript",
       "React",
       "Next.js",
       "Node.js",
@@ -82,7 +89,7 @@
         ],
         "pt": [
           "Desenvolveu aplicações full-stack",
-          "Analisou conjuntos de dados complexos", 
+          "Analisou conjuntos de dados complexos",
           "Construiu ferramentas de visualização de dados"
         ],
         "de": [

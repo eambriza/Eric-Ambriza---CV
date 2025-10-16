@@ -1,16 +1,16 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import { useScrollReveal } from '@/hooks/useScrollReveal'
-import type { Project } from '@/data/projects'
+import Link from 'next/link';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+import type { Project } from '@/data/projects';
 
 interface ProjectPageClientProps {
-  project: Project
+  project: Project;
 }
 
 export default function ProjectPageClient({ project }: ProjectPageClientProps) {
-  const headerRef = useScrollReveal()
-  const contentRef = useScrollReveal()
+  const headerRef = useScrollReveal();
+  const contentRef = useScrollReveal();
 
   return (
     <div className="min-h-screen py-20 px-6 lg:px-12">
@@ -22,7 +22,12 @@ export default function ProjectPageClient({ project }: ProjectPageClientProps) {
             className="inline-flex items-center space-x-2 text-accent-cyan hover:text-accent-magenta transition-colors link-underline"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
             </svg>
             <span>Back to Projects</span>
           </Link>
@@ -30,15 +35,9 @@ export default function ProjectPageClient({ project }: ProjectPageClientProps) {
 
         {/* Header */}
         <div ref={headerRef} className="text-center mb-12 opacity-0">
-          <h1 className="text-4xl lg:text-5xl font-display font-bold mb-4">
-            {project.title}
-          </h1>
-          <p className="text-xl text-accent-magenta mb-6">
-            {project.category}
-          </p>
-          <p className="text-lg text-light/90 max-w-2xl mx-auto">
-            {project.blurb}
-          </p>
+          <h1 className="text-4xl lg:text-5xl font-display font-bold mb-4">{project.title}</h1>
+          <p className="text-xl text-accent-magenta mb-6">{project.category}</p>
+          <p className="text-lg text-light/90 max-w-2xl mx-auto">{project.blurb}</p>
         </div>
 
         {/* Content */}
@@ -70,7 +69,12 @@ export default function ProjectPageClient({ project }: ProjectPageClientProps) {
                 >
                   <span>Open Project</span>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
                   </svg>
                 </a>
               </div>
@@ -80,18 +84,12 @@ export default function ProjectPageClient({ project }: ProjectPageClientProps) {
           {/* Project Details */}
           <div className="grid lg:grid-cols-2 gap-8">
             <div className="bg-border/30 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-4 text-accent-cyan">
-                Technologies Used
-              </h3>
-              <p className="text-light/90">
-                {project.category}
-              </p>
+              <h3 className="text-xl font-semibold mb-4 text-accent-cyan">Technologies Used</h3>
+              <p className="text-light/90">{project.category}</p>
             </div>
 
             <div className="bg-border/30 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-4 text-accent-magenta">
-                Project Links
-              </h3>
+              <h3 className="text-xl font-semibold mb-4 text-accent-magenta">Project Links</h3>
               <div className="space-y-2">
                 {project.url && (
                   <a
@@ -119,5 +117,5 @@ export default function ProjectPageClient({ project }: ProjectPageClientProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }

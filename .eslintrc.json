@@ -1,0 +1,11 @@
+{
+  "extends": ["next/core-web-vitals"],
+  "env": { 
+    "browser": true, 
+    "es2022": true 
+  },
+  "rules": { 
+    "no-unused-vars": ["warn", { "args": "none", "ignoreRestSiblings": true }],
+    "react/no-unescaped-entities": "off"
+  }
+}

@@ -1,14 +1,16 @@
-import { t } from "../i18n.js";
-import { esc } from "../sanitize.js";
+import { t } from '../i18n.js';
+import { esc } from '../sanitize.js';
 
 export function Header({ content, lang, onLangChange }) {
   const n = content.nav;
-  const langs = content.langs || ["en"];
-  
-  const buttons = langs.map(code => {
-    const active = code === lang ? ' aria-current="true"' : "";
-    return `<button class="lang-btn" data-lang="${esc(code)}"${active}>${esc(code.toUpperCase())}</button>`;
-  }).join("");
+  const langs = content.langs || ['en'];
+
+  const buttons = langs
+    .map((code) => {
+      const active = code === lang ? ' aria-current="true"' : '';
+      return `<button class="lang-btn" data-lang="${esc(code)}"${active}>${esc(code.toUpperCase())}</button>`;
+    })
+    .join('');
 
   const html = `
     <header role="banner" class="site-header">
@@ -28,9 +30,9 @@ export function Header({ content, lang, onLangChange }) {
   return {
     html,
     attach(root) {
-      root.querySelectorAll(".lang-btn").forEach(btn => {
-        btn.addEventListener("click", () => onLangChange(btn.dataset.lang));
+      root.querySelectorAll('.lang-btn').forEach((btn) => {
+        btn.addEventListener('click', () => onLangChange(btn.dataset.lang));
       });
-    }
+    },
   };
 }

@@ -1,0 +1,24 @@
+\src\components\BackCard.tsx:2 - default
+\src\components\GlitchText.tsx:8 - default
+\src\components\Sidebar.tsx:15 - default
+\src\data\resume.ts:1 - PersonalInfo (used in module)
+\src\data\resume.ts:17 - WorkExperience (used in module)
+\src\data\resume.ts:24 - Education (used in module)
+\src\data\resume.ts:30 - Skill (used in module)
+\.next\types\app\layout.ts:49 - PageProps
+\.next\types\app\layout.ts:53 - LayoutProps (used in module)
+\.next\types\app\page.ts:49 - PageProps (used in module)
+\.next\types\app\page.ts:53 - LayoutProps
+\src\app\experience\page.tsx:6 - default
+\src\app\projects\page.tsx:7 - default
+\src\app\skills\page.tsx:6 - default
+\.next\types\app\contact\page.ts:49 - PageProps (used in module)
+\.next\types\app\contact\page.ts:53 - LayoutProps
+\.next\types\app\portfolio\page.ts:49 - PageProps (used in module)
+\.next\types\app\portfolio\page.ts:53 - LayoutProps
+\.next\types\app\resume\page.ts:49 - PageProps (used in module)
+\.next\types\app\resume\page.ts:53 - LayoutProps
+\src\app\portfolio\[slug]\page.tsx:11 - generateStaticParams
+\src\app\portfolio\[slug]\page.tsx:17 - default
+\src\app\projects\[slug]\page.tsx:11 - generateStaticParams
+\src\app\projects\[slug]\page.tsx:17 - default

@@ -5,5 +5,5 @@ export default function Footer() {
         © 2025 EAMBRIZA. All rights reserved.
       </p>
     </div>
-  )
+  );
 }
