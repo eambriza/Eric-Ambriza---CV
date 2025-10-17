@@ -1,11 +1,14 @@
 import Link from "next/link";
 import Typewriter from "@/components/Typewriter";
 import ScrollIndicator from "@/components/ScrollIndicator";
+import BrutalistNavigation from "@/components/BrutalistNavigation";
 import { newProjects, oldProjects } from "@/data/projects";
 
 export default function Portfolio() {
   return (
-    <div>
+    <div className="bg-white min-h-screen">
+      {/* Navigation */}
+      <BrutalistNavigation />
       {/* Hero Section */}
       <section
         className="

@@ -2,13 +2,8 @@
 import type { Metadata } from 'next';
 import { Space_Mono, Roboto } from 'next/font/google';
 import './globals.css';
-
-import Navigation from '@/components/Navigation';
-import LoadingOverlay from '@/components/LoadingOverlay';
-import Footer from '@/components/Footer';
 import { LoadingProvider } from '@/contexts/LoadingContext';
-import LayoutVarsClient from '@/components/LayoutVarsClient';
-import CustomCursor from '@/components/CustomCursor';
+import LoadingOverlay from '@/components/LoadingOverlay';
 
 const spaceMono = Space_Mono({
   subsets: ['latin'],
@@ -31,39 +26,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${spaceMono.variable} ${roboto.variable}`}>
-      <body 
-        className="bg-[#2b2d31] text-text-primary font-sans cursor-none"
-        style={{
-          ["--nav-h" as any]: "64px",
-          ["--main-py" as any]: "40px", 
-          ["--frame-inset" as any]: "48px",
-          ["--sticky-top" as any]: "calc(var(--frame-inset) + var(--nav-h) + var(--main-py))",
-        } as React.CSSProperties}
-      >
+      <body className="bg-white font-sans">
         <LoadingProvider>
           <LoadingOverlay />
-          <LayoutVarsClient />
-
-          {/* INFO GLASS CARD (single foreground layer) */}
-          <div className="fixed inset-6 z-10 bg-white/2 backdrop-blur-2xl border border-white/25 shadow-[0_20px_60px_-25px_rgba(0,0,0,0.7)] overflow-hidden flex flex-col rounded-2xl">
-            {/* Subtle sheen overlay */}
-            <div className="pointer-events-none absolute inset-0 opacity-[.15] bg-gradient-to-b from-white to-transparent" />
-
-            {/* Navigation Header - 20% transparent with no border */}
-            <div id="site-nav" className="relative z-10 p-10 bg-white/2">
-              <Navigation />
-            </div>
-
-            {/* Main Content Area - 20% transparent */}
-            <main className="relative z-10 flex-1 overflow-y-auto p-10 space-y-12 bg-white/2">
-              {children}
-            </main>
-
-            {/* Footer inside glass container */}
-            <Footer />
-          </div>
+          {children}
         </LoadingProvider>
-        <CustomCursor />
       </body>
     </html>
   );

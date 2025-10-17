@@ -40,6 +40,8 @@ export interface Certification {
   sortDate: string; // For sorting purposes
   icon: string; // Icon identifier
   credentialLink?: string;
+  description?: string;
+  skills?: string[];
 }
 
 export const personalInfo: PersonalInfo = {
@@ -141,6 +143,10 @@ export const skills: Skill[] = [
     items: ['CommCare', 'CRM integration']
   },
   {
+    category: 'Soft Skills',
+    items: ['Leadership & Team Management', 'Cross-Cultural Communication', 'Problem Solving & Critical Thinking', 'Stakeholder Engagement']
+  },
+  {
     category: 'Languages',
     items: ['English (Fluent)', 'Portuguese (Native)', 'Changana (Fluent)']
   }
@@ -153,7 +159,9 @@ export const certifications: Certification[] = [
     date: 'Jun 2025',
     sortDate: '2025-06',
     icon: 'pmi',
-    credentialLink: 'https://www.credly.com/badges/11fac0e0-9459-4789-aba3-9fdf7b6910ee/linked_in_profile'
+    credentialLink: 'https://www.credly.com/badges/11fac0e0-9459-4789-aba3-9fdf7b6910ee/linked_in_profile',
+    description: 'Globally recognized certification demonstrating expertise in project management across industries and methodologies.',
+    skills: ['Project Planning', 'Risk Management', 'Stakeholder Management', 'Agile Methodologies', 'Budget Management', 'Quality Control']
   },
   {
     name: 'ChatGPT Prompt Engineering for Developers',
@@ -161,7 +169,9 @@ export const certifications: Certification[] = [
     date: 'Oct 2025',
     sortDate: '2025-10',
     icon: 'deeplearning',
-    credentialLink: 'https://learn.deeplearning.ai/accomplishments/60524dbf-7170-481d-ae37-a16ff0d18117?usp=sharing'
+    credentialLink: 'https://learn.deeplearning.ai/accomplishments/60524dbf-7170-481d-ae37-a16ff0d18117?usp=sharing',
+    description: 'Advanced techniques for building applications with large language models using effective prompt engineering strategies.',
+    skills: ['Prompt Engineering', 'LLM Integration', 'AI Application Development', 'Natural Language Processing']
   },
   {
     name: 'Generative AI for Project Managers',
@@ -169,7 +179,9 @@ export const certifications: Certification[] = [
     date: 'Oct 2025',
     sortDate: '2025-10',
     icon: 'skillup',
-    credentialLink: 'https://www.coursera.org/account/accomplishments/specialization/QODSWCLCPBM2'
+    credentialLink: 'https://www.coursera.org/account/accomplishments/specialization/QODSWCLCPBM2',
+    description: 'Specialized training on leveraging generative AI tools and techniques to enhance project management efficiency and decision-making.',
+    skills: ['AI-Powered Project Planning', 'Automated Reporting', 'Risk Assessment with AI', 'Team Productivity Enhancement']
   },
   {
     name: 'ClickUp Expert Certificate of Completion',
@@ -177,7 +189,9 @@ export const certifications: Certification[] = [
     date: 'Sep 2025',
     sortDate: '2025-09',
     icon: 'clickup',
-    credentialLink: 'https://verify.skilljar.com/c/v2gzoznuvzhz'
+    credentialLink: 'https://verify.skilljar.com/c/v2gzoznuvzhz',
+    description: 'Comprehensive mastery of ClickUp platform for project management, team collaboration, and workflow optimization.',
+    skills: ['Project Management', 'Team Collaboration', 'Workflow Automation', 'Task Management', 'Reporting & Analytics']
   },
   {
     name: 'Generative AI for Software Development',
@@ -185,7 +199,9 @@ export const certifications: Certification[] = [
     date: 'Aug 2025',
     sortDate: '2025-08',
     icon: 'deeplearning',
-    credentialLink: 'https://www.coursera.org/account/accomplishments/professional-cert/certificate/JL5NRNOAK7R1'
+    credentialLink: 'https://www.coursera.org/account/accomplishments/professional-cert/certificate/JL5NRNOAK7R1',
+    description: 'Comprehensive course on integrating generative AI into software development workflows, including code generation and optimization.',
+    skills: ['AI-Assisted Coding', 'Code Generation', 'Software Architecture with AI', 'Development Workflow Optimization']
   },
   {
     name: 'Google Project Management Professional Certificate',
@@ -193,7 +209,9 @@ export const certifications: Certification[] = [
     date: 'Feb 2025',
     sortDate: '2025-02',
     icon: 'coursera',
-    credentialLink: 'https://www.credly.com/badges/0abd5e6c-ca34-4b6c-a298-0a9591726620/linked_in_profile'
+    credentialLink: 'https://www.credly.com/badges/0abd5e6c-ca34-4b6c-a298-0a9591726620/linked_in_profile',
+    description: 'Comprehensive project management program covering traditional and agile methodologies, with hands-on experience using industry tools.',
+    skills: ['Project Initiation', 'Planning & Execution', 'Agile Management', 'Risk Management', 'Stakeholder Communication', 'Google Workspace']
   },
   {
     name: 'Marketing Analytics Foundation',
@@ -201,7 +219,9 @@ export const certifications: Certification[] = [
     date: 'Dec 2022',
     sortDate: '2022-12',
     icon: 'meta',
-    credentialLink: 'https://coursera.org/share/7339d986a9aa18df58daadf40dc656e6'
+    credentialLink: 'https://coursera.org/share/7339d986a9aa18df58daadf40dc656e6',
+    description: 'Foundational course in marketing analytics covering data collection, analysis, and interpretation for marketing decision-making.',
+    skills: ['Data Analysis', 'Marketing Metrics', 'Campaign Performance', 'Customer Insights', 'ROI Analysis']
   },
   {
     name: 'Nanodegree in Data Analysis',
@@ -209,13 +229,17 @@ export const certifications: Certification[] = [
     date: '2018',
     sortDate: '2018-01',
     icon: 'udacity',
-    credentialLink: 'https://confirm.udacity.com/your-nanodegree-id'
+    credentialLink: 'https://confirm.udacity.com/your-nanodegree-id',
+    description: 'Intensive program covering the complete data analysis workflow from data wrangling to statistical analysis and visualization.',
+    skills: ['Python Programming', 'Data Wrangling', 'Statistical Analysis', 'Data Visualization', 'Pandas & NumPy', 'Jupyter Notebooks']
   },
   {
     name: 'MySQL & Linux Intermediate',
     issuer: 'Cenfoss',
     date: '2017',
     sortDate: '2017-01',
-    icon: 'cenfoss'
+    icon: 'cenfoss',
+    description: 'Intermediate-level training in MySQL database administration and Linux system management for enterprise environments.',
+    skills: ['MySQL Administration', 'Database Optimization', 'Linux System Administration', 'Shell Scripting', 'Server Management']
   }
 ].sort((a, b) => b.sortDate.localeCompare(a.sortDate)); // Sort by date descending (newest first)

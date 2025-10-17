@@ -1,10 +1,13 @@
 import Typewriter from "@/components/Typewriter";
 import ScrollIndicator from "@/components/ScrollIndicator";
+import BrutalistNavigation from "@/components/BrutalistNavigation";
 import { personalInfo } from "@/data/resume";
 
 export default function Contact() {
   return (
-    <div>
+    <div className="bg-white min-h-screen">
+      {/* Navigation */}
+      <BrutalistNavigation />
       {/* Hero Section */}
       <section
         className="

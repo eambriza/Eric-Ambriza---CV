@@ -12,7 +12,23 @@ module.exports = {
         'back-card': '#2b2d31',
         'text-primary': '#e6e6e6',
         'text-secondary': '#a3a3a3',
-        'accent-orange': '#ff7a18'
+        'accent-orange': '#ff7a18',
+        // Brutalist Design Colors
+        'deep-navy': '#0f2e5a',
+        'teal': '#2EC4B6',
+        'teal-accent': '#7EA3BD',
+        'lime-accent': '#B8E6B8',
+        'mint': '#E8F5E8',
+        'warm-orange': '#FF7A18',
+        'label-purple': '#8B5CF6',
+        'sky-blue': '#87CEEB',
+        'butter-yellow': '#F4E4BC',
+        'peach': '#FFCBA4',
+        'lime': '#32CD32',
+        'royal-blue': '#4169E1',
+        'text-cream': '#FFF8DC',
+        'color-border': '#0f2e5a',
+        'matrix-black': '#000000'
       },
       fontFamily: {
         'mono': ['Space Mono', 'monospace'],

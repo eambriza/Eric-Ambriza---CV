@@ -1,18 +1,15 @@
+import { FaGraduationCap } from "react-icons/fa";
 import Typewriter from "@/components/Typewriter";
 import ScrollIndicator from "@/components/ScrollIndicator";
 import Timeline from "@/components/Timeline";
-import { workExperience, education, skills, certifications } from "@/data/resume";
-import {
-  SiMeta,
-  SiClickup,
-  SiCoursera,
-  SiUdacity
-} from "react-icons/si";
-import { FaGraduationCap, FaDatabase } from "react-icons/fa";
+import BrutalistNavigation from "@/components/BrutalistNavigation";
+import { workExperience, education, skills } from "@/data/resume";
 
 export default function Resume() {
   return (
-    <div>
+    <div className="bg-white min-h-screen">
+      {/* Navigation */}
+      <BrutalistNavigation />
       {/* Hero Section */}
       <section
         className="
@@ -161,7 +158,7 @@ export default function Resume() {
           </div>
         </section>
 
-        
+
 
         {/* Timeline Component Test */}
         <section className="py-16 mb-24">
