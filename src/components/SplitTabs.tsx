@@ -12,10 +12,14 @@ export default function SplitTabs({
   tabs,
   initialId,
   className = "",
+  bottomLeftContent,
+  onChange,
 }: {
   tabs: SplitTab[];
   initialId?: string;
   className?: string;
+  bottomLeftContent?: ReactNode;
+  onChange?: (activeId: string) => void;
 }) {
   const fallback = tabs[0]?.id ?? "";
   const [active, setActive] = useState(initialId ?? fallback);
@@ -25,6 +29,11 @@ export default function SplitTabs({
   useEffect(() => {
     if (!tabs.find(t => t.id === active)) setActive(fallback);
   }, [tabs, active, fallback]);
+
+  // call onChange when active changes
+  useEffect(() => {
+    onChange?.(active);
+  }, [active, onChange]);
 
   function onKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
     const idx = tabs.findIndex(t => t.id === active);
@@ -42,37 +51,46 @@ export default function SplitTabs({
   return (
     <div className={`grid grid-cols-1 md:grid-cols-4 ${className}`}>
       {/* Left: 1/4 (25%) */}
-      <div
-        role="tablist"
-        aria-label="Sections"
-        className="md:col-span-1 brutal-border bg-white"
-        onKeyDown={onKeyDown}
-      >
-        {tabs.map(t => {
-          const selected = t.id === active;
-          return (
-            <button
-              key={t.id}
-              role="tab"
-              aria-selected={selected}
-              aria-controls={`${groupId}-${t.id}-panel`}
-              id={`${groupId}-${t.id}-tab`}
-              onClick={() => setActive(t.id)}
-              className={`relative w-full text-left px-4 py-5 border-b last:border-b-0 transition-all duration-300 ${
-                selected 
-                  ? "bg-deep-navy text-text-cream shadow-brutal" 
-                  : "bg-lime-accent text-deep-navy hover:bg-teal-accent"
-              } border-deep-navy`}
-            >
-              <span className="font-bold uppercase tracking-wide">
-                {t.label}
-              </span>
-              {selected && (
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-warm-orange"></div>
-              )}
-            </button>
-          );
-        })}
+      <div className="md:col-span-1 flex flex-col">
+        <div
+          role="tablist"
+          aria-label="Sections"
+          className="brutal-border bg-white flex-1"
+          onKeyDown={onKeyDown}
+        >
+          {tabs.map(t => {
+            const selected = t.id === active;
+            return (
+              <button
+                key={t.id}
+                role="tab"
+                aria-selected={selected}
+                aria-controls={`${groupId}-${t.id}-panel`}
+                id={`${groupId}-${t.id}-tab`}
+                onClick={() => setActive(t.id)}
+                className={`relative w-full text-left px-4 py-5 border-b last:border-b-0 transition-all duration-300 ${
+                  selected 
+                    ? "bg-deep-navy text-text-cream shadow-brutal" 
+                    : "bg-lime-accent text-deep-navy hover:bg-teal-accent"
+                } border-deep-navy`}
+              >
+                <span className="font-bold uppercase tracking-wide">
+                  {t.label}
+                </span>
+                {selected && (
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-warm-orange"></div>
+                )}
+              </button>
+            );
+          })}
+        </div>
+        
+        {/* Bottom Left Content */}
+        {bottomLeftContent && (
+          <div className="brutal-border border-t-0 bg-white min-h-[200px]">
+            {bottomLeftContent}
+          </div>
+        )}
       </div>
 
       {/* Right: 3/4 (75%) */}

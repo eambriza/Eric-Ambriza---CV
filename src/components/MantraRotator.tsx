@@ -48,17 +48,67 @@ export default function MantraRotator({ active }: { active: boolean }) {
   if (!active) return null;
 
   return (
-    <div className="bg-warm-orange text-deep-navy h-full overflow-hidden">
-      <div className="h-full flex items-start justify-center p-4">
+    <div className="bg-warm-orange text-deep-navy h-full overflow-hidden relative border-4 border-deep-navy">
+      {/* Decorative corner elements */}
+      <div className="absolute top-4 right-4 w-6 h-6 bg-deep-navy border-2 border-text-cream shadow-pixel"></div>
+      <div className="absolute bottom-4 left-4 w-4 h-4 bg-label-purple border-2 border-deep-navy shadow-pixel"></div>
+      <div className="absolute top-1/2 right-0 w-2 h-8 bg-teal-accent border-l-2 border-deep-navy transform -translate-y-1/2"></div>
+      
+      {/* 3D Geometric Stack - Top Left */}
+      <div className="absolute top-6 left-6 flex space-x-1">
+        <div className="w-4 h-4 bg-deep-navy border-2 border-text-cream shadow-pixel"></div>
+        <div className="w-4 h-4 bg-label-purple border-2 border-deep-navy shadow-pixel"></div>
+        <div className="w-4 h-4 bg-teal-accent border-2 border-deep-navy shadow-pixel"></div>
+      </div>
+
+      {/* Floating Cubes - Bottom Right */}
+      <div className="absolute bottom-8 right-8 flex flex-col space-y-2">
+        <div className="w-3 h-3 bg-text-cream border border-deep-navy shadow-pixel ml-4"></div>
+        <div className="w-3 h-3 bg-deep-navy border border-text-cream shadow-pixel ml-2"></div>
+        <div className="w-3 h-3 bg-label-purple border border-deep-navy shadow-pixel"></div>
+      </div>
+
+      <div className="h-full flex items-center justify-center p-6 relative z-10">
         <div
-          className={`text-center transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+          className={`text-center transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} relative`}
         >
-          <h2 className="font-display text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider leading-tight">
+          {/* Mantra Counter */}
+          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
+            <div className="bg-deep-navy text-text-cream px-3 py-1 font-mono text-xs font-bold border-2 border-deep-navy shadow-pixel">
+              MANTRA #{currentIndex + 1}/{MANTRAS.length}
+            </div>
+          </div>
+
+          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider leading-tight relative">
             {MANTRAS[currentIndex].split(' ').map((word, index) => (
-              <div key={index}>{word}</div>
+              <div key={index} className="relative">
+                {word}
+                {index === 0 && (
+                  <div className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-label-purple border border-deep-navy"></div>
+                )}
+              </div>
             ))}
           </h2>
+
+          {/* Accent Lines */}
+          <div className="absolute -bottom-4 left-0 right-0 flex justify-center space-x-2">
+            <div className="w-8 h-1 bg-deep-navy"></div>
+            <div className="w-4 h-1 bg-label-purple"></div>
+            <div className="w-8 h-1 bg-deep-navy"></div>
+          </div>
         </div>
+      </div>
+
+      {/* Progress Dots */}
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
+        {Array.from({ length: 5 }).map((_, index) => (
+          <div
+            key={index}
+            className={`w-1 h-1 border border-deep-navy ${
+              index === currentIndex % 5 ? 'bg-deep-navy' : 'bg-text-cream'
+            }`}
+          />
+        ))}
       </div>
     </div>
   );

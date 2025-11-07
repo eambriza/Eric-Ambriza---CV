@@ -7,6 +7,8 @@ import { newProjects, oldProjects, projects } from '@/data/projects';
 import BrutalistSectionBand from '@/components/BrutalistSectionBand';
 import BrutalistNavigation from '@/components/BrutalistNavigation';
 import SplitTabs, { SplitTab } from '@/components/SplitTabs';
+import MantraRotator from '@/components/MantraRotator';
+import RecommendationsRotator from '@/components/RecommendationsRotator';
 
 // Experience tabs data for home page with original card format
 const experienceTabs: SplitTab[] = [
@@ -254,9 +256,9 @@ const portfolioTabs: SplitTab[] = [
           </ul>
 
           <div className="flex gap-4">
-            <a 
-              href={newProjects[0].github} 
-              target="_blank" 
+            <a
+              href={newProjects[0].github}
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-deep-navy text-text-cream px-4 py-2 inline-block font-mono text-sm font-bold hover:bg-label-purple transition-colors duration-200"
             >
@@ -271,7 +273,7 @@ const portfolioTabs: SplitTab[] = [
         {/* Decorative corner elements */}
         <div className="absolute bottom-4 left-4 w-4 h-4 bg-teal border-2 border-white"></div>
         <div className="absolute top-1/2 right-0 w-2 h-8 bg-deep-navy border-l-2 border-deep-navy transform -translate-y-1/2"></div>
-        
+
         {/* Extended space to match old projects height */}
         <div className="bg-gradient-to-br from-warm-orange/10 to-deep-navy/10 min-h-[200px]">
         </div>
@@ -322,9 +324,9 @@ const portfolioTabs: SplitTab[] = [
           </ul>
 
           <div className="flex gap-4">
-            <a 
-              href={newProjects[1].github} 
-              target="_blank" 
+            <a
+              href={newProjects[1].github}
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-deep-navy text-text-cream px-4 py-2 inline-block font-mono text-sm font-bold hover:bg-label-purple transition-colors duration-200"
             >
@@ -339,7 +341,7 @@ const portfolioTabs: SplitTab[] = [
         {/* Decorative corner elements */}
         <div className="absolute bottom-4 left-4 w-4 h-4 bg-warm-orange border-2 border-white"></div>
         <div className="absolute top-1/2 right-0 w-2 h-8 bg-teal-accent border-l-2 border-deep-navy transform -translate-y-1/2"></div>
-        
+
         {/* Extended space to match old projects height */}
         <div className="bg-gradient-to-br from-teal-accent/10 to-deep-navy/10 min-h-[200px]">
         </div>
@@ -390,17 +392,17 @@ const portfolioTabs: SplitTab[] = [
           </ul>
 
           <div className="flex gap-4">
-            <a 
-              href={oldProjects[0].github} 
-              target="_blank" 
+            <a
+              href={oldProjects[0].github}
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-deep-navy text-text-cream px-4 py-2 inline-block font-mono text-sm font-bold hover:bg-label-purple transition-colors duration-200"
             >
               VIEW CODE
             </a>
-            <a 
-              href={oldProjects[0].url} 
-              target="_blank" 
+            <a
+              href={oldProjects[0].url}
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-label-purple text-text-cream px-4 py-2 inline-block font-mono text-sm font-bold hover:bg-warm-orange transition-colors duration-200"
             >
@@ -412,7 +414,7 @@ const portfolioTabs: SplitTab[] = [
         {/* Decorative corner elements */}
         <div className="absolute bottom-4 left-4 w-4 h-4 bg-label-purple border-2 border-white"></div>
         <div className="absolute top-1/2 right-0 w-2 h-8 bg-mint border-l-2 border-deep-navy transform -translate-y-1/2"></div>
-        
+
         {/* Extended space to match old projects height */}
         <div className="bg-gradient-to-br from-mint/10 to-deep-navy/10 min-h-[200px]">
         </div>
@@ -463,9 +465,9 @@ const portfolioTabs: SplitTab[] = [
           </ul>
 
           <div className="flex gap-4">
-            <a 
-              href={oldProjects[2].github} 
-              target="_blank" 
+            <a
+              href={oldProjects[2].github}
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-deep-navy text-text-cream px-4 py-2 inline-block font-mono text-sm font-bold hover:bg-label-purple transition-colors duration-200"
             >
@@ -480,7 +482,7 @@ const portfolioTabs: SplitTab[] = [
         {/* Decorative corner elements */}
         <div className="absolute bottom-4 left-4 w-4 h-4 bg-warm-orange border-2 border-white"></div>
         <div className="absolute top-1/2 right-0 w-2 h-8 bg-sky-blue border-l-2 border-deep-navy transform -translate-y-1/2"></div>
-        
+
         {/* Extended space to match old projects height */}
         <div className="bg-gradient-to-br from-sky-blue/10 to-deep-navy/10 min-h-[200px]">
         </div>
@@ -531,9 +533,9 @@ const portfolioTabs: SplitTab[] = [
           </ul>
 
           <div className="flex gap-4">
-            <a 
-              href={newProjects[2].github} 
-              target="_blank" 
+            <a
+              href={newProjects[2].github}
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-deep-navy text-text-cream px-4 py-2 inline-block font-mono text-sm font-bold hover:bg-warm-orange hover:text-deep-navy transition-colors duration-200"
             >
@@ -548,7 +550,7 @@ const portfolioTabs: SplitTab[] = [
         {/* Decorative corner elements */}
         <div className="absolute bottom-4 left-4 w-4 h-4 bg-warm-orange border-2 border-white"></div>
         <div className="absolute top-1/2 right-0 w-2 h-8 bg-label-purple border-l-2 border-deep-navy transform -translate-y-1/2"></div>
-        
+
         {/* Extended space to match old projects height */}
         <div className="bg-gradient-to-br from-label-purple/10 to-deep-navy/10 min-h-[200px]">
         </div>
@@ -599,9 +601,9 @@ const portfolioTabs: SplitTab[] = [
           </ul>
 
           <div className="flex gap-4">
-            <a 
-              href={oldProjects[3].github} 
-              target="_blank" 
+            <a
+              href={oldProjects[3].github}
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-deep-navy text-text-cream px-4 py-2 inline-block font-mono text-sm font-bold hover:bg-label-purple transition-colors duration-200"
             >
@@ -616,7 +618,7 @@ const portfolioTabs: SplitTab[] = [
         {/* Decorative corner elements */}
         <div className="absolute bottom-4 left-4 w-4 h-4 bg-label-purple border-2 border-white"></div>
         <div className="absolute top-1/2 right-0 w-2 h-8 bg-butter-yellow border-l-2 border-deep-navy transform -translate-y-1/2"></div>
-        
+
         {/* Placeholder space for future content - integrated */}
         <div className="bg-gradient-to-br from-butter-yellow/10 to-deep-navy/10 border-t-4 border-deep-navy border-dashed p-8 flex items-center justify-center min-h-[200px]">
           <div className="text-deep-navy/40 font-mono text-lg font-bold uppercase tracking-wider text-center">
@@ -671,9 +673,9 @@ const portfolioTabs: SplitTab[] = [
           </ul>
 
           <div className="flex gap-4">
-            <a 
-              href={oldProjects[1].github} 
-              target="_blank" 
+            <a
+              href={oldProjects[1].github}
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-deep-navy text-text-cream px-4 py-2 inline-block font-mono text-sm font-bold hover:bg-label-purple transition-colors duration-200"
             >
@@ -688,7 +690,7 @@ const portfolioTabs: SplitTab[] = [
         {/* Decorative corner elements */}
         <div className="absolute bottom-4 left-4 w-4 h-4 bg-warm-orange border-2 border-white"></div>
         <div className="absolute top-1/2 right-0 w-2 h-8 bg-teal border-l-2 border-deep-navy transform -translate-y-1/2"></div>
-        
+
         {/* Placeholder space for future content - integrated */}
         <div className="bg-gradient-to-br from-teal/10 to-deep-navy/10 border-t-4 border-deep-navy border-dashed p-8 flex items-center justify-center min-h-[200px]">
           <div className="text-deep-navy/40 font-mono text-lg font-bold uppercase tracking-wider text-center">
@@ -705,6 +707,7 @@ export default function BrutalistCV() {
   const [currentTime, setCurrentTime] = useState('');
   const [expandedCerts, setExpandedCerts] = useState<Set<number>>(new Set());
   const [activePortfolioTab, setActivePortfolioTab] = useState('global-env-calc');
+  const [activeExperienceTab, setActiveExperienceTab] = useState('dimagi');
 
   useEffect(() => {
     const updateTime = () => {
@@ -804,7 +807,16 @@ export default function BrutalistCV() {
             viewport={{ once: true }}
           >
             <div className="[&_.brutal-border]:border-deep-navy [&_.brutal-border]:border-4 [&_button]:bg-lime-accent [&_button]:text-deep-navy [&_button]:border-deep-navy [&_button.bg-\\[var\\(--secondary\\)\\]]:bg-teal-accent [&_button.bg-\\[var\\(--secondary\\)\\]]:text-deep-navy [&_[role=tabpanel]]:bg-mint">
-              <SplitTabs tabs={experienceTabs} />
+              <SplitTabs
+                tabs={experienceTabs}
+                initialId={activeExperienceTab}
+                onChange={setActiveExperienceTab}
+                bottomLeftContent={
+                  <div className="h-full">
+                    <RecommendationsRotator active={true} />
+                  </div>
+                }
+              />
             </div>
           </motion.div>
         </div>
@@ -831,85 +843,86 @@ export default function BrutalistCV() {
           >
             {/* Split Layout: Degrees (35%) | Certifications (65%) */}
             <div className="grid md:grid-cols-5">
-              
+
               {/* Left Side: DEGREES (35% - 2 columns out of 5) */}
-              <div className="md:col-span-2">
+              <div className="md:col-span-2 flex flex-col min-h-0">
                 <div className="bg-warm-orange text-deep-navy p-4 border-4 border-deep-navy shadow-brutal">
                   <h3 className="font-display text-2xl font-black uppercase tracking-wider text-center">
                     DEGREES
                   </h3>
                 </div>
-                
-                {/* Degrees Table Layout - Full Height */}
-                <div className="flex flex-col h-full">
-                  {/* Primary Degree - Takes 60% of available space */}
-                  <div className="bg-text-cream text-deep-navy p-6 border-4 border-t-0 border-deep-navy shadow-brutal flex-1 flex flex-col justify-between min-h-[400px]">
-                    <div>
-                      <div className="flex items-start gap-4 mb-4">
-                        <div className="w-12 h-12 bg-label-purple border-4 border-deep-navy shadow-pixel flex items-center justify-center flex-shrink-0">
-                          <div className="w-6 h-6 bg-text-cream border-2 border-deep-navy"></div>
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-display text-xl font-black mb-2 uppercase tracking-wider leading-tight">
-                            B.SC. (HONS) COMPUTER SCIENCE
-                          </h4>
-                          <p className="font-mono text-sm font-bold uppercase tracking-widest mb-2 text-warm-orange">
-                            GRADUATED WITH HONORS
-                          </p>
-                        </div>
+
+                {/* Degrees Layout - Fixed Heights that match collapsed certifications exactly */}
+                <div className="flex-shrink-0">
+                  {/* Primary Degree - Reduced Height to align MBA with MySQL cert */}
+                  <div className="bg-text-cream text-deep-navy p-6 border-4 border-t-0 border-deep-navy shadow-brutal h-[420px] flex flex-col">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 bg-label-purple border-4 border-deep-navy shadow-pixel flex items-center justify-center flex-shrink-0">
+                        <div className="w-6 h-6 bg-text-cream border-2 border-deep-navy"></div>
                       </div>
-                      <div className="space-y-2 mb-4">
-                        <div className="bg-warm-orange text-deep-navy px-3 py-1 inline-block font-mono text-xs font-bold border-2 border-deep-navy">
-                          ISCTEM - MOZAMBIQUE
-                        </div>
-                        <div className="bg-teal text-deep-navy px-3 py-1 inline-block font-mono text-xs font-bold border-2 border-deep-navy ml-2">
-                          2010 - 2014
-                        </div>
+                      <div className="flex-1">
+                        <h4 className="font-display text-xl font-black mb-2 uppercase tracking-wider leading-tight">
+                          B.SC. (HONS) COMPUTER SCIENCE
+                        </h4>
+                        <p className="font-mono text-sm font-bold uppercase tracking-widest mb-2 text-warm-orange">
+                          GRADUATED WITH HONORS
+                        </p>
                       </div>
-                      <p className="text-sm font-bold leading-relaxed">
-                        Software development, database management, and systems analysis.
-                      </p>
                     </div>
+                    <div className="space-y-2 mb-4">
+                      <div className="bg-warm-orange text-deep-navy px-3 py-1 inline-block font-mono text-xs font-bold border-2 border-deep-navy">
+                        ISCTEM - MOZAMBIQUE
+                      </div>
+                      <div className="bg-teal text-deep-navy px-3 py-1 inline-block font-mono text-xs font-bold border-2 border-deep-navy ml-2">
+                        2010 - 2014
+                      </div>
+                    </div>
+                    <p className="text-sm font-bold leading-relaxed mb-4">
+                      Software development, database management, and systems analysis.
+                    </p>
                     {/* Placeholder space for future images */}
-                    <div className="flex-1 min-h-[200px] bg-gradient-to-br from-warm-orange/10 to-teal/10 border-2 border-dashed border-deep-navy/30 mt-6 flex items-center justify-center">
+                    <div className="flex-1 bg-gradient-to-br from-warm-orange/10 to-teal/10 border-2 border-dashed border-deep-navy/30 flex items-center justify-center">
                       <div className="text-deep-navy/40 font-mono text-sm font-bold uppercase tracking-wider">
                         IMAGE PLACEHOLDER
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Additional Education - Takes 40% of available space */}
-                  <div className="bg-mint text-deep-navy p-6 border-4 border-t-0 border-deep-navy shadow-brutal flex-1 flex flex-col justify-between min-h-[300px]">
-                    <div>
-                      <div className="flex items-start gap-4 mb-4">
-                        <div className="w-12 h-12 bg-warm-orange border-4 border-deep-navy shadow-pixel flex items-center justify-center flex-shrink-0">
-                          <div className="w-6 h-6 bg-deep-navy border border-text-cream"></div>
-                        </div>
-                        <div className="flex-1">
-                          <h5 className="font-display text-lg font-black mb-2 uppercase tracking-wider leading-tight">
-                            MBA IN OIL AND GAS
-                          </h5>
-                          <p className="font-mono text-xs font-bold uppercase tracking-widest mb-2 text-label-purple">
-                            INCOMPLETE - CAREER PIVOT
-                          </p>
-                        </div>
+
+                  {/* Additional Education - Fixed Height - This bottom aligns with collapsed certifications */}
+                  <div className="bg-mint text-deep-navy p-6 border-4 border-t-0 border-deep-navy shadow-brutal h-[310px] flex flex-col">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="w-12 h-12 bg-warm-orange border-4 border-deep-navy shadow-pixel flex items-center justify-center flex-shrink-0">
+                        <div className="w-6 h-6 bg-deep-navy border border-text-cream"></div>
                       </div>
-                      <div className="space-y-2">
-                        <div className="bg-label-purple text-text-cream px-3 py-1 inline-block font-mono text-xs font-bold border-2 border-deep-navy">
-                          ISCTEM - MOZAMBIQUE
-                        </div>
-                        <div className="bg-deep-navy text-text-cream px-3 py-1 inline-block font-mono text-xs font-bold border-2 border-deep-navy ml-2">
-                          2016 - TRANSITIONED TO TECH
-                        </div>
+                      <div className="flex-1">
+                        <h5 className="font-display text-lg font-black mb-2 uppercase tracking-wider leading-tight">
+                          MBA IN OIL AND GAS
+                        </h5>
+                        <p className="font-mono text-xs font-bold uppercase tracking-widest mb-2 text-label-purple">
+                          INCOMPLETE - CAREER PIVOT
+                        </p>
+                      </div>
+                    </div>
+                    <div className="space-y-2 mb-4">
+                      <div className="bg-label-purple text-text-cream px-3 py-1 inline-block font-mono text-xs font-bold border-2 border-deep-navy">
+                        ISCTEM - MOZAMBIQUE
+                      </div>
+                      <div className="bg-deep-navy text-text-cream px-3 py-1 inline-block font-mono text-xs font-bold border-2 border-deep-navy ml-2">
+                        2016 - TRANSITIONED TO TECH
                       </div>
                     </div>
                     {/* Placeholder space for future images */}
-                    <div className="flex-1 min-h-[120px] bg-gradient-to-br from-label-purple/10 to-deep-navy/10 border-2 border-dashed border-deep-navy/30 mt-4 flex items-center justify-center">
+                    <div className="flex-1 bg-gradient-to-br from-label-purple/10 to-deep-navy/10 border-2 border-dashed border-deep-navy/30 flex items-center justify-center">
                       <div className="text-deep-navy/40 font-mono text-xs font-bold uppercase tracking-wider">
                         IMAGE PLACEHOLDER
                       </div>
                     </div>
                   </div>
+                </div>
+
+                {/* MantraRotator - Expands to fill remaining space when certifications expand */}
+                <div className="border-4 border-t-0 border-deep-navy shadow-brutal flex-1 min-h-0 overflow-hidden">
+                  <MantraRotator active={true} />
                 </div>
               </div>
 
@@ -920,15 +933,14 @@ export default function BrutalistCV() {
                     CERTIFICATIONS
                   </h3>
                 </div>
-                
+
                 {/* Certifications Table Layout */}
                 <div>
                   {certifications.map((cert, index) => (
-                    <div key={index} className={`border-4 border-t-0 border-deep-navy shadow-brutal transition-all duration-200 ${
-                      index % 3 === 0 ? 'bg-text-cream text-deep-navy' : 
-                      index % 3 === 1 ? 'bg-mint text-deep-navy' : 
-                      'bg-teal-accent text-deep-navy'
-                    }`}>
+                    <div key={index} className={`border-4 border-t-0 border-deep-navy shadow-brutal transition-all duration-200 ${index % 3 === 0 ? 'bg-text-cream text-deep-navy' :
+                      index % 3 === 1 ? 'bg-mint text-deep-navy' :
+                        'bg-teal-accent text-deep-navy'
+                      }`}>
                       {/* Main Certification Row - Clickable */}
                       <button
                         onClick={() => {
@@ -948,9 +960,8 @@ export default function BrutalistCV() {
                               <h4 className="font-mono text-sm font-bold uppercase leading-tight">
                                 {cert.name}
                               </h4>
-                              <div className={`w-4 h-4 border-2 border-deep-navy flex items-center justify-center transition-transform duration-200 ${
-                                expandedCerts.has(index) ? 'rotate-180' : ''
-                              }`}>
+                              <div className={`w-4 h-4 border-2 border-deep-navy flex items-center justify-center transition-transform duration-200 ${expandedCerts.has(index) ? 'rotate-180' : ''
+                                }`}>
                                 <div className="w-2 h-2 bg-deep-navy transform rotate-45"></div>
                               </div>
                             </div>
@@ -965,9 +976,9 @@ export default function BrutalistCV() {
                           </div>
                           <div className="flex-shrink-0">
                             {cert.credentialLink && (
-                              <a 
-                                href={cert.credentialLink} 
-                                target="_blank" 
+                              <a
+                                href={cert.credentialLink}
+                                target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
                                 className="bg-label-purple text-text-cream px-3 py-2 font-mono text-xs font-bold border-2 border-deep-navy hover:bg-warm-orange hover:text-deep-navy transition-colors duration-200"
@@ -1097,10 +1108,10 @@ export default function BrutalistCV() {
           >
             {/* Custom Portfolio Layout */}
             <div className="grid md:grid-cols-3">
-              
+
               {/* Left Sidebar - 1/3 width */}
               <div className="md:col-span-1 border-4 border-t-0 border-deep-navy bg-white flex flex-col">
-                
+
                 {/* Main Project Buttons - Top Section */}
                 <div>
                   {portfolioTabs.slice(0, 3).map((tab, index) => {
@@ -1110,11 +1121,10 @@ export default function BrutalistCV() {
                       <button
                         key={tab.id}
                         onClick={() => setActivePortfolioTab(tab.id)}
-                        className={`relative w-full text-left px-4 py-5 ${isLast ? 'border-b-0' : 'border-b'} transition-all duration-300 ${
-                          selected 
-                            ? "bg-deep-navy text-text-cream shadow-brutal" 
-                            : "bg-warm-orange text-deep-navy hover:bg-teal-accent"
-                        } border-deep-navy`}
+                        className={`relative w-full text-left px-4 py-5 ${isLast ? 'border-b-0' : 'border-b'} transition-all duration-300 ${selected
+                          ? "bg-deep-navy text-text-cream shadow-brutal"
+                          : "bg-warm-orange text-deep-navy hover:bg-teal-accent"
+                          } border-deep-navy`}
                       >
                         <span className="font-bold uppercase tracking-wide">
                           {tab.label}
@@ -1135,11 +1145,11 @@ export default function BrutalistCV() {
                       OLD PROJECTS
                     </h4>
                   </div>
-                  
+
                   {/* Old Projects Grid - Perfect Squares (each = half width of header) */}
                   <div className="bg-mint">
                     <div className="grid grid-cols-2">
-                      
+
                       {/* Image Slider - Top Left */}
                       <div className="bg-royal-blue text-text-cream border-4 border-t-0 border-deep-navy shadow-pixel hover:scale-105 transition-transform duration-200 cursor-pointer aspect-square flex flex-col justify-between p-2">
                         <div className="text-center">
@@ -1154,9 +1164,9 @@ export default function BrutalistCV() {
                           <p className="font-bold text-xs leading-tight mb-2 text-text-cream">
                             React carousel component with Axios integration and Material UI styling
                           </p>
-                          <a 
-                            href={oldProjects[1].github} 
-                            target="_blank" 
+                          <a
+                            href={oldProjects[1].github}
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="bg-text-cream text-deep-navy px-2 py-1 font-mono text-xs font-bold hover:bg-warm-orange hover:text-deep-navy transition-colors duration-200"
                             onClick={(e) => e.stopPropagation()}
@@ -1165,7 +1175,7 @@ export default function BrutalistCV() {
                           </a>
                         </div>
                       </div>
-                      
+
                       {/* Wine Quality - Top Right */}
                       <div className="bg-label-purple text-text-cream border-4 border-t-0 border-l-0 border-deep-navy shadow-pixel hover:scale-105 transition-transform duration-200 cursor-pointer aspect-square flex flex-col justify-between p-2">
                         <div className="text-center">
@@ -1180,9 +1190,9 @@ export default function BrutalistCV() {
                           <p className="font-bold text-xs leading-tight mb-2 text-text-cream">
                             R-based wine quality analysis with correlation matrices and predictive models
                           </p>
-                          <a 
-                            href={oldProjects[3].github} 
-                            target="_blank" 
+                          <a
+                            href={oldProjects[3].github}
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="bg-text-cream text-deep-navy px-2 py-1 font-mono text-xs font-bold hover:bg-warm-orange hover:text-deep-navy transition-colors duration-200"
                             onClick={(e) => e.stopPropagation()}
@@ -1191,7 +1201,7 @@ export default function BrutalistCV() {
                           </a>
                         </div>
                       </div>
-                      
+
                       {/* Coronagora - Bottom Left */}
                       <div className="bg-matrix-black text-text-cream border-4 border-t-0 border-deep-navy shadow-pixel hover:scale-105 transition-transform duration-200 cursor-pointer aspect-square flex flex-col justify-between p-2">
                         <div className="text-center">
@@ -1207,18 +1217,18 @@ export default function BrutalistCV() {
                             Next.js COVID-19 tracker with Chart.js visualizations and Vercel deployment
                           </p>
                           <div className="flex gap-1 justify-center">
-                            <a 
-                              href={oldProjects[0].github} 
-                              target="_blank" 
+                            <a
+                              href={oldProjects[0].github}
+                              target="_blank"
                               rel="noopener noreferrer"
                               className="bg-text-cream text-deep-navy px-1 py-1 font-mono text-xs font-bold hover:bg-warm-orange transition-colors duration-200"
                               onClick={(e) => e.stopPropagation()}
                             >
                               CODE
                             </a>
-                            <a 
-                              href={oldProjects[0].url} 
-                              target="_blank" 
+                            <a
+                              href={oldProjects[0].url}
+                              target="_blank"
                               rel="noopener noreferrer"
                               className="bg-warm-orange text-deep-navy px-1 py-1 font-mono text-xs font-bold hover:bg-teal transition-colors duration-200"
                               onClick={(e) => e.stopPropagation()}
@@ -1228,7 +1238,7 @@ export default function BrutalistCV() {
                           </div>
                         </div>
                       </div>
-                      
+
                       {/* Python Reports - Bottom Right */}
                       <div className="bg-lime text-deep-navy border-4 border-t-0 border-l-0 border-deep-navy shadow-pixel hover:scale-105 transition-transform duration-200 cursor-pointer aspect-square flex flex-col justify-between p-2">
                         <div className="text-center">
@@ -1243,9 +1253,9 @@ export default function BrutalistCV() {
                           <p className="font-bold text-xs leading-tight mb-2">
                             Python tools for data processing, visualization, and automated report generation
                           </p>
-                          <a 
-                            href={oldProjects[2].github} 
-                            target="_blank" 
+                          <a
+                            href={oldProjects[2].github}
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="bg-deep-navy text-text-cream px-2 py-1 font-mono text-xs font-bold hover:bg-teal hover:text-deep-navy transition-colors duration-200"
                             onClick={(e) => e.stopPropagation()}
@@ -1254,7 +1264,7 @@ export default function BrutalistCV() {
                           </a>
                         </div>
                       </div>
-                      
+
                     </div>
                   </div>
                 </div>
@@ -1292,7 +1302,7 @@ export default function BrutalistCV() {
           >
             {/* Contact Grid - Connected Elements */}
             <div className="grid md:grid-cols-3 min-h-[400px]">
-              
+
               {/* Left Column: Contact Info */}
               <div className="bg-teal text-deep-navy border-4 border-t-0 border-deep-navy shadow-brutal flex flex-col">
                 {/* Header */}
@@ -1301,7 +1311,7 @@ export default function BrutalistCV() {
                     GET IN TOUCH
                   </h3>
                 </div>
-                
+
                 {/* Contact Details */}
                 <div className="flex-1 p-6 flex flex-col justify-center space-y-6">
                   <div className="flex items-center group">
@@ -1313,7 +1323,7 @@ export default function BrutalistCV() {
                       <span className="font-bold text-lg">eric.mauro@hotmail.com</span>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center group">
                     <div className="w-8 h-8 bg-deep-navy border-2 border-deep-navy mr-4 flex items-center justify-center group-hover:bg-warm-orange transition-colors duration-200">
                       <div className="w-4 h-4 bg-teal border border-deep-navy"></div>
@@ -1323,7 +1333,7 @@ export default function BrutalistCV() {
                       <span className="font-bold text-lg">071-892-8364</span>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center group">
                     <div className="w-8 h-8 bg-deep-navy border-2 border-deep-navy mr-4 flex items-center justify-center group-hover:bg-warm-orange transition-colors duration-200">
                       <div className="w-4 h-4 bg-teal border border-deep-navy"></div>
@@ -1344,7 +1354,7 @@ export default function BrutalistCV() {
                     AVAILABILITY
                   </h3>
                 </div>
-                
+
                 {/* Status Content */}
                 <div className="flex-1 p-6 flex flex-col justify-between">
                   <div>
@@ -1352,11 +1362,11 @@ export default function BrutalistCV() {
                       CURRENTLY AVAILABLE
                     </div>
                     <p className="font-bold mb-6 leading-relaxed">
-                      Open to freelance projects and full-time opportunities in digital health, 
+                      Open to freelance projects and full-time opportunities in digital health,
                       data analysis, and mobile application development.
                     </p>
                   </div>
-                  
+
                   {/* Specializations */}
                   <div>
                     <div className="font-mono text-xs font-bold uppercase tracking-wider mb-3 text-deep-navy/70">
@@ -1385,10 +1395,10 @@ export default function BrutalistCV() {
                     TAKE ACTION
                   </h3>
                 </div>
-                
+
                 {/* Action Buttons */}
                 <div className="flex-1 p-6 flex flex-col justify-center space-y-4">
-                  <a 
+                  <a
                     href={personalInfo.resumeDownload}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -1396,15 +1406,15 @@ export default function BrutalistCV() {
                   >
                     DOWNLOAD CV
                   </a>
-                  
-                  <a 
+
+                  <a
                     href={`mailto:${personalInfo.email}`}
                     className="bg-warm-orange text-deep-navy p-4 font-mono text-sm font-bold border-4 border-deep-navy hover:bg-teal hover:scale-105 transition-all duration-200 text-center uppercase tracking-wider"
                   >
                     SEND EMAIL
                   </a>
-                  
-                  <a 
+
+                  <a
                     href={personalInfo.github}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -1432,7 +1442,7 @@ export default function BrutalistCV() {
                   Digital Health Specialist & Data Analyst based in Cape Town, South Africa.
                 </p>
               </div>
-              
+
               <div>
                 <h4 className="font-mono text-lg font-bold mb-4 uppercase tracking-widest text-warm-orange">
                   QUICK LINKS
@@ -1452,7 +1462,7 @@ export default function BrutalistCV() {
                   </a>
                 </div>
               </div>
-              
+
               <div>
                 <h4 className="font-mono text-lg font-bold mb-4 uppercase tracking-widest text-warm-orange">
                   CONNECT
@@ -1473,7 +1483,7 @@ export default function BrutalistCV() {
                 </div>
               </div>
             </div>
-            
+
             <div className="border-t-4 border-teal pt-6 flex flex-col md:flex-row justify-between items-center">
               <div className="bg-teal text-deep-navy px-4 py-2 font-mono text-sm font-bold border-2 border-text-cream mb-4 md:mb-0">
                 © 2025 ERIC AMBRIZA. ALL RIGHTS RESERVED.
