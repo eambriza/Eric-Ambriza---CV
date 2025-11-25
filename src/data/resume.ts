@@ -54,6 +54,7 @@ export const personalInfo: PersonalInfo = {
   resumeDownload:
     'https://drive.google.com/file/d/1S6Xf4VCKK7lsJqgzJ9W1oBf5QqAhamtO/view?usp=sharing',
   address: {
+    street: '',  
     city: 'Cape Town',
     state: 'Western Cape',
     zip: '8005',
