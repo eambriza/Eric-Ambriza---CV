@@ -46,34 +46,39 @@ export interface Certification {
 
 export const personalInfo: PersonalInfo = {
   name: 'Eric Ambriza',
-  title: 'Senior Project Analyst & Digital Health Specialist',
-  bio: "Graduated with Honors in Computer Science with a focus on software development, database management, and systems analysis. Currently leading digital health projects across Sub-Saharan Africa, specializing in scalable mobile applications and data solutions for international NGOs.",
+  title: 'Project Manager & Data Analyst',
+  bio: "Graduated with Honors in Computer Science and certified PMP with expertise in project management, data analytics, and digital transformation. Currently managing cross-functional tech projects across Africa and Europe, delivering scalable SaaS, BI, and automation solutions for global organizations.",
   email: 'eric.mauro@hotmail.com',
   phone: '071-892-8364',
   github: 'https://github.com/eambriza?tab=repositories',
   resumeDownload:
     'https://drive.google.com/file/d/1S6Xf4VCKK7lsJqgzJ9W1oBf5QqAhamtO/view?usp=sharing',
   address: {
-    street: '4th Ave, Rondebosh East 141',
     city: 'Cape Town',
     state: 'Western Cape',
-    zip: '7780',
+    zip: '8005',
   },
 };
 
 export const workExperience: WorkExperience[] = [
   {
     company: 'Dimagi',
-    title: 'Senior Project Analyst',
+    title: 'Technical Project Manager',
     years: '2020 - Present',
     description: 'Led end-to-end digital health projects on CommCare across Sub-Saharan Africa, owning scoping, build, QA, deployment, and partner communication.',
-    bullets: [
-      'Led end-to-end digital health projects on CommCare across Sub-Saharan Africa, owning scoping, build, QA, deployment, and partner communication.',
-      'Built Superset and Power BI dashboards by exporting and cleaning CommCare data to deliver actionable insights to stakeholders.',
-      'Integrated DHIS2 and other systems with CommCare to improve interoperability and reporting quality.',
-      'Planned budgets, timelines, risks, and resources; delivered on time and within scope on projects totaling $300k+.',
-      'Trained end users, produced release notes, and monitored usage to drive adoption and data quality.'
-    ]
+   bullets: [
+  'Oversaw digital health projects end-to-end, coordinating cross-functional teams, schedules, and deliverables as Project Manager across Sub-Saharan Africa.',
+  'Translated business requirements into technical specifications and app designs that fit within larger system ecosystems.',
+  'Scoped work, estimated effort, and aligned teams to scope and timelines using Asana and Jira.',
+  'Led end-to-end CommCare deployments across Ethiopia, Kenya, Mozambique, USA, and Uganda, covering scoping, build, QA, and partner communication.',
+  'Provided technical leadership and produced detailed technical documentation for delivery and maintenance teams.',
+  'Executed QA test plans across the SDLC to ensure reliable, high-quality releases.',
+  'Built Superset and Power BI/SQL dashboards by cleaning and analyzing CommCare data to support evidence-based decisions.',
+  'Integrated DHIS2 and other systems with CommCare to improve interoperability and reporting quality.',
+  'Planned budgets, timelines, risks, and resources; delivered on time and within scope on projects totaling $300k+.',
+  'Trained end users, delivered client workshops, and produced release notes to drive adoption and data quality.'
+]
+
   },
   {
     company: 'Pernod Ricard / Chivas',
@@ -163,6 +168,17 @@ export const certifications: Certification[] = [
     description: 'Globally recognized certification demonstrating expertise in project management across industries and methodologies.',
     skills: ['Project Planning', 'Risk Management', 'Stakeholder Management', 'Agile Methodologies', 'Budget Management', 'Quality Control']
   },
+   {
+  name: 'Microsoft Power BI: PL-300 Certification Prep (Data Analyst)',
+  issuer: 'Udemy',
+  date: 'Oct 2025',
+  sortDate: '2025-10',
+  icon: 'udemy',
+  credentialLink: 'http://localhost:3000\certification\\Microsoft Power BI - PL-300 Certification Prep - Data Analyst.pdf',
+  description: 'Comprehensive training on Microsoft Power BI aligned with the PL-300 Data Analyst certification. Covers data modeling, DAX, visualization, and dashboard design using real-world datasets.',
+  skills: ['Power BI', 'Data Modeling', 'DAX', 'Data Visualization', 'Dashboard Design', 'Data Analysis']
+},
+
   {
     name: 'ChatGPT Prompt Engineering for Developers',
     issuer: 'DeepLearning.AI',

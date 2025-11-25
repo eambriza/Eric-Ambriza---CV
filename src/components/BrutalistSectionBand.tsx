@@ -17,6 +17,7 @@ export default function BrutalistSectionBand({
 }: BrutalistSectionBandProps) {
   return (
     <div 
+      id={id}
       className={`${backgroundColor} ${textColor} ${borderColor} border-t-8 border-b-8 py-8 md:py-12 transform rotate-${rotation > 0 ? `${rotation}` : `[${rotation}deg]`} transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer`}
     >
       <div className="container mx-auto px-4">

@@ -314,7 +314,7 @@
   --peach: #FFCBA4;
   --lime: #32CD32;
   --royal-blue: #4169E1;
-  --text-cream: #FFF8DC;
+  --text-cream: #fff6ee;
   --color-border: #0f2e5a;
   --matrix-black: #000000;
 }
@@ -350,7 +350,7 @@
   }
 
   .soft-text {
-    color: #FFF8DC;
+    color: #fff6ee;
   }
 
   .inner-cream {

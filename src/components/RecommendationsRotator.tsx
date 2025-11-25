@@ -4,34 +4,46 @@ import React, { useState, useEffect } from 'react';
 
 const RECOMMENDATIONS = [
   {
-    text: "Eric consistently delivers high-quality work and demonstrates exceptional problem-solving skills.",
-    author: "Sarah Chen",
-    role: "Senior Product Manager",
-    company: "TechCorp"
+    text: "Eric’s ability to manage complex digital transformation projects with precision and empathy made a measurable impact on every initiative we worked on. His structured approach, paired with strong communication, consistently drove success across global teams.",
+    author: "Lourena do Rosario",
+    role: "Project Manager",
+    company: "Meta",
+    workedAt: "Dimagi"
   },
   {
-    text: "His ability to bridge technical and business requirements makes him invaluable to any team.",
-    author: "Michael Rodriguez",
-    role: "Engineering Director",
-    company: "InnovateLabs"
+    text: "Eric combines technical understanding with business acumen in a rare way. He’s a project leader who understands system design, delivery, and stakeholder alignment, which makes him a trusted partner in both engineering and strategic discussions.",
+    author: "Marcelo Dauane",
+    role: "Senior Engineering Manager",
+    company: "MoonPay",
+    workedAt: "Freelance"
   },
   {
-    text: "Eric's leadership in project management and technical execution is outstanding.",
-    author: "Jennifer Kim",
-    role: "VP of Engineering",
-    company: "DataFlow Systems"
+    text:"At Vodacom, Eric played a key role in aligning technology and operations to deliver major infrastructure and digital initiatives on time. His leadership, discipline, and results-oriented mindset made him one of the most reliable project managers on our team.",
+    author: "Pedro Fernandes",
+    role: "Executive Head Network & Infrastructure Planning Engineering",
+    company: "Vodacom",
+    workedAt: "Vodacom"
   },
   {
-    text: "A rare combination of technical depth and strategic thinking. Highly recommended.",
-    author: "David Thompson",
-    role: "CTO",
-    company: "ScaleUp Inc"
+    text: "Eric has an exceptional ability to bridge IT and business objectives. During our collaboration at Vodacom, he consistently demonstrated strong analytical thinking, problem-solving, and a focus on delivery excellence that inspired his peers.",
+    author: "Rui Cossa",
+    role: "Head: Application Solution Management",
+    company: "Standard Bank Moçambique",
+    workedAt: "Vodacom"
   },
   {
-    text: "Eric's collaborative approach and attention to detail make complex projects successful.",
-    author: "Lisa Wang",
-    role: "Product Director",
-    company: "CloudTech Solutions"
+    text: "Eric brings energy, structure, and innovation to every project. His attention to detail and ability to motivate cross-functional teams make him a standout leader in project management and digital solution delivery.",
+    author: "Yomila Simoes",
+    role: "Senior Project Analyst",
+    company: "Dimagi",
+    workedAt: "Dimagi"
+  },
+  {
+    text: "Eric’s professionalism and deep technical knowledge set him apart. At Mozal, he improved system processes and data workflows, ensuring operational efficiency and reliable information management across departments.",
+    author: "Chris Meyer",
+    role: "Information Manager",
+    company: "Mozal",
+    workedAt: "Mozal"
   }
 ];
 
@@ -60,79 +72,27 @@ export default function RecommendationsRotator({ active }: { active: boolean }) 
   const currentRec = RECOMMENDATIONS[currentIndex];
 
   return (
-    <div className="bg-mint text-deep-navy h-full overflow-hidden relative border-4 border-deep-navy">
-      {/* Decorative corner elements */}
-      <div className="absolute top-4 right-4 w-6 h-6 bg-label-purple border-2 border-deep-navy shadow-pixel"></div>
-      <div className="absolute bottom-4 left-4 w-4 h-4 bg-warm-orange border-2 border-deep-navy shadow-pixel"></div>
-      <div className="absolute top-1/2 left-0 w-2 h-8 bg-teal-accent border-r-2 border-deep-navy transform -translate-y-1/2"></div>
-
-      {/* 3D Cube Stack - Top Left */}
-      <div className="absolute top-6 left-6 flex flex-col space-y-1">
-        <div className="w-3 h-3 bg-deep-navy border border-text-cream shadow-pixel"></div>
-        <div className="w-3 h-3 bg-warm-orange border border-deep-navy shadow-pixel ml-1"></div>
-        <div className="w-3 h-3 bg-label-purple border border-deep-navy shadow-pixel ml-2"></div>
-      </div>
-
-      {/* Geometric Pattern - Bottom Right */}
-      <div className="absolute bottom-6 right-6 grid grid-cols-2 gap-1">
-        <div className="w-2 h-2 bg-teal-accent border border-deep-navy"></div>
-        <div className="w-2 h-2 bg-deep-navy border border-text-cream"></div>
-        <div className="w-2 h-2 bg-deep-navy border border-text-cream"></div>
-        <div className="w-2 h-2 bg-warm-orange border border-deep-navy"></div>
-      </div>
-
-      <div className="h-full flex flex-col justify-center p-8 relative z-10">
+    <div className="bg-[#F5FAFD] text-deep-navy h-full overflow-hidden border-4 border-deep-navy">
+      <div className="h-full flex flex-col justify-center p-6">
         <div
           className={`transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
-          {/* Quote Icon */}
-          <div className="mb-6 flex items-center gap-4">
-            <div className="w-12 h-12 bg-warm-orange border-4 border-deep-navy shadow-pixel flex items-center justify-center relative">
-              <div className="w-6 h-6 bg-deep-navy border-2 border-text-cream"></div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-label-purple border border-deep-navy"></div>
-            </div>
-            <div className="font-display text-xs font-black uppercase tracking-widest text-deep-navy/60">
-              CLIENT TESTIMONIAL #{currentIndex + 1}
-            </div>
-          </div>
-
-          <blockquote className="text-lg font-bold leading-relaxed mb-6 relative">
-            <div className="absolute -left-4 top-0 w-1 h-full bg-warm-orange"></div>
+          <blockquote className="text-base leading-relaxed mb-4">
             "{currentRec.text}"
           </blockquote>
 
-          <div className="border-t-4 border-deep-navy pt-4 relative">
-            {/* Author Info with Icons */}
-            <div className="flex items-start gap-4">
-              <div className="flex flex-col space-y-1">
-                <div className="w-4 h-4 bg-label-purple border-2 border-deep-navy shadow-pixel"></div>
-                <div className="w-4 h-4 bg-teal-accent border-2 border-deep-navy shadow-pixel"></div>
-              </div>
-              <div className="flex-1">
-                <div className="font-display text-sm font-black uppercase tracking-wider mb-1">
-                  {currentRec.author}
-                </div>
-                <div className="font-mono text-xs font-bold text-deep-navy/80 mb-1">
-                  {currentRec.role}
-                </div>
-                <div className="font-mono text-xs font-bold text-warm-orange bg-deep-navy px-2 py-1 inline-block border border-deep-navy">
-                  {currentRec.company}
-                </div>
-              </div>
+          <div className="border-t-2 border-deep-navy pt-3">
+            <div className="font-bold text-sm mb-1">
+              {currentRec.author}
+            </div>
+            <div className="text-xs text-deep-navy/70 mb-1">
+              {currentRec.role} at {currentRec.company}
+            </div>
+            <div className="text-xs text-deep-navy/60">
+              Worked together at {currentRec.workedAt}
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Progress Indicator */}
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
-        {RECOMMENDATIONS.map((_, index) => (
-          <div
-            key={index}
-            className={`w-2 h-2 border border-deep-navy ${index === currentIndex ? 'bg-warm-orange' : 'bg-text-cream'
-              }`}
-          />
-        ))}
       </div>
     </div>
   );

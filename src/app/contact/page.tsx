@@ -9,38 +9,38 @@ export default function Contact() {
       {/* Navigation */}
       <BrutalistNavigation />
       {/* Hero Section */}
-      <section
-        className="
-          relative
-          min-h-[calc(100svh-var(--frame-inset)-var(--nav-h)-var(--main-py))]
-          px-6
-        "
-      >
-        {/* Main heading centered relative to the whole card, nudged slightly up */}
-        <h1
-          className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2
-                     text-center glitch-text font-mono text-4xl md:text-6xl lg:text-7xl
-                     font-bold tracking-[0.2em] text-text-primary uppercase"
-          style={{ top: "calc(50% - (var(--nav-h) + var(--main-py)) / 2 - 0.25em)" }}
-          data-text="CONTACT"
-        >
-          CONTACT
-        </h1>
+      <section className="relative min-h-[calc(100svh-var(--frame-inset)-var(--nav-h)-var(--main-py))] px-6">
+        {/* Main heading centered */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+          <h1
+            className="text-center glitch-text font-mono text-4xl md:text-6xl lg:text-7xl
+                       font-bold tracking-[0.2em] text-text-primary uppercase mb-8"
+            data-text="CONTACT"
+          >
+            CONTACT
+          </h1>
 
-        {/* Underline + subtitle positioned below the adjusted midline */}
-        <div
-          className="absolute left-1/2 -translate-x-1/2 text-center space-y-6"
-          style={{
-            top:
-              "calc(50% - (var(--nav-h) + var(--main-py)) / 2 - 0.25em + 2.25rem)",
-          }}
-        >
-          <div className="mx-auto h-0.5 w-16 md:w-24 lg:w-32 bg-accent-orange animate-pulse" />
-          <Typewriter
-            text="Let's connect and discuss opportunities"
-            speed={70}
-            className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
-          />
+          {/* Scrolling Mantra Banner - directly below heading */}
+          <div className="w-full overflow-hidden bg-text-primary border-y-4 border-accent-orange py-4 my-8">
+            <div className="flex animate-scroll-left">
+              <span className="flex-shrink-0 font-mono text-lg md:text-xl font-bold tracking-wider text-accent-orange uppercase whitespace-nowrap pr-8">
+                ✦ LET'S BUILD SOMETHING GREAT TOGETHER ✦ COLLABORATION DRIVES INNOVATION ✦ YOUR VISION MY EXECUTION ✦ READY TO CONNECT
+              </span>
+              <span className="flex-shrink-0 font-mono text-lg md:text-xl font-bold tracking-wider text-accent-orange uppercase whitespace-nowrap pr-8">
+                ✦ LET'S BUILD SOMETHING GREAT TOGETHER ✦ COLLABORATION DRIVES INNOVATION ✦ YOUR VISION MY EXECUTION ✦ READY TO CONNECT
+              </span>
+            </div>
+          </div>
+
+          {/* Underline + subtitle */}
+          <div className="text-center space-y-6 mt-8">
+            <div className="mx-auto h-0.5 w-16 md:w-24 lg:w-32 bg-accent-orange animate-pulse" />
+            <Typewriter
+              text="Let's connect and discuss opportunities"
+              speed={70}
+              className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
+            />
+          </div>
         </div>
 
         <ScrollIndicator className="absolute bottom-8 left-1/2 -translate-x-1/2" />

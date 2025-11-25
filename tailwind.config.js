@@ -40,7 +40,8 @@ module.exports = {
       },
       animation: {
         'typing': 'typing 2s steps(20, end) infinite alternate',
-        'blink': 'blink 1s infinite'
+        'blink': 'blink 1s infinite',
+        'scroll-left': 'scroll-left 20s linear infinite'
       },
       keyframes: {
         typing: {
@@ -50,6 +51,10 @@ module.exports = {
         blink: {
           '0%, 50%': { opacity: '1' },
           '51%, 100%': { opacity: '0' }
+        },
+        'scroll-left': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' }
         }
       }
     },

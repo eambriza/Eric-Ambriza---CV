@@ -7,6 +7,7 @@ export interface Project {
   embed?: string;
   image?: string;
   category: string;
+  demo?: string;
 }
 
 // New projects (featured first)
@@ -17,6 +18,7 @@ export const newProjects: Project[] = [
     blurb:
       'Interactive web application for calculating and visualizing environmental impact metrics with real-time data processing and responsive charts.',
     github: 'https://github.com/eambriza/global-environmental-impact-calculator',
+    demo: 'https://global-environmental-impact-calcula.vercel.app/',
     image: 'global-environmental-impact-calculator.JPG',
     category: 'React, JavaScript, Chart.js',
   },
@@ -26,17 +28,19 @@ export const newProjects: Project[] = [
     blurb:
       'Project Management Professional exam preparation tool featuring interactive quizzes, progress tracking, and comprehensive study materials.',
     github: 'https://github.com/eambriza/pmp-drill-coach',
+    demo: 'https://pmp-coach-teal.vercel.app/',
     image: 'pmp-drill-coach.JPG',
     category: 'React, Node.js, Express',
   },
   {
-    slug: 'eric-ambriza-cv',
-    title: 'Eric Ambriza CV',
+    slug: 'wingfantasy',
+    title: 'Wing Fantasy',
     blurb:
-      'Modern, responsive portfolio website built with Next.js featuring interactive animations, dark theme, and optimized performance.',
-    github: 'https://github.com/eambriza/Eric-Ambriza---CV',
-    image: 'eric-ambriza-cv.JPG',
-    category: 'Next.js, React, Tailwind CSS',
+      'Interactive fantasy sports platform for chicken wing enthusiasts featuring team management, scoring system, and competitive leagues.',
+    github: 'https://github.com/eambriza/wingfantasy',
+    demo: 'https://wingfantasy.vercel.app/',
+    image: 'wingfantasy.JPG',
+    category: 'Next.js, React, TypeScript',
   },
 ];
 
