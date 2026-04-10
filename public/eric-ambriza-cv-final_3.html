@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eric Ambriza — Project Manager & Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:     #111010;
+  --ink2:    #383432;
+  --ink3:    #7a7470;
+  --ink4:    #b8b4b0;
+  --paper:   #faf8f5;
+  --paper2:  #f3f0eb;
+  --paper3:  #e8e4de;
+  --rule:    #ddd9d3;
+  --accent:  #b84a28;
+  --accent2: #e8cfc6;
+  --accent3: #f5ece8;
+  --display: 'Playfair Display', Georgia, serif;
+  --body:    'DM Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── GRAIN ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: .4;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  height: 56px;
+  background: rgba(250,248,245,0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+}
+
+.nav-logo {
+  font-family: var(--display);
+  font-size: 16px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.2px;
+}
+.nav-logo em { font-style: italic; color: var(--accent); }
+
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--ink); }
+
+.nav-cta {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  text-decoration: none;
+  padding: 8px 20px;
+  border-radius: 2px;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--accent); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  padding-top: 56px;
+}
+
+.hero-l {
+  padding: 7rem 4rem 5rem 3rem;
+  border-right: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: rise .7s .1s ease forwards;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--accent2);
+}
+
+.hero-name {
+  font-family: var(--display);
+  font-size: clamp(58px, 7.5vw, 96px);
+  font-weight: 700;
+  line-height: .92;
+  letter-spacing: -3px;
+  color: var(--ink);
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: rise .7s .25s ease forwards;
+}
+.hero-name em { display: block; font-style: italic; font-weight: 400; color: var(--ink3); }
+
+.hero-bio {
+  font-size: 15px;
+  line-height: 1.78;
+  color: var(--ink2);
+  max-width: 480px;
+  margin-bottom: 44px;
+  opacity: 0;
+  animation: rise .7s .4s ease forwards;
+}
+
+.stats-row {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 32px;
+  opacity: 0;
+  animation: rise .7s .55s ease forwards;
+}
+
+.stat {
+  flex: 1;
+  padding-right: 24px;
+  border-right: 1px solid var(--rule);
+  margin-right: 24px;
+}
+.stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+
+.stat-val {
+  font-family: var(--display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+
+.hero-r {
+  padding: 7rem 3rem 5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 36px;
+}
+
+.info-block {
+  opacity: 0;
+  animation: rise .7s ease forwards;
+}
+.info-block:nth-child(1) { animation-delay: .35s; }
+.info-block:nth-child(2) { animation-delay: .5s; }
+.info-block:nth-child(3) { animation-delay: .65s; }
+.info-block:nth-child(4) { animation-delay: .8s; }
+
+.info-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  margin-bottom: 10px;
+}
+
+.info-val { font-size: 14px; color: var(--ink2); line-height: 1.65; }
+.info-val a { color: var(--accent); text-decoration: none; }
+.info-val a:hover { text-decoration: underline; }
+
+.pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+.pill {
+  font-size: 12px;
+  color: var(--ink2);
+  background: var(--paper2);
+  border: 1px solid var(--rule);
+  padding: 5px 14px;
+  border-radius: 100px;
+  transition: all .2s;
+  cursor: default;
+}
+.pill:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Fallback: ensure hero elements are visible even if animation fails */
+.hero-eyebrow, .hero-name, .hero-bio, .stats-row, .info-block {
+  animation-fill-mode: both;
+}
+
+/* ── TICKER ── */
+.ticker-wrap {
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 13px 0;
+  background: var(--paper2);
+  position: relative; z-index: 2;
+}
+.ticker-track { display: flex; white-space: nowrap; animation: ticker 38s linear infinite; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+.ti {
+  font-size: 11px;
+  color: var(--ink3);
+  padding: 0 28px;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ti::before { content: '◆'; color: var(--accent2); font-size: 7px; }
+
+/* ── SECTION WRAPPER ── */
+.section-rule {
+  border-top: 1px solid var(--rule);
+  padding: 13px 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper2);
+  position: relative; z-index: 2;
+}
+.sr-num { font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--ink4); }
+.sr-title { font-family: var(--display); font-size: 13px; font-style: italic; color: var(--ink3); }
+
+section {
+  position: relative; z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 3rem;
+}
+
+.sec-head {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 0;
+  align-items: end;
+  margin-bottom: 56px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--rule);
+}
+.sec-ghost {
+  font-family: var(--display);
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -3px;
+  color: var(--paper3);
+  user-select: none;
+}
+.sec-title {
+  font-family: var(--display);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--ink);
+  line-height: 1;
+}
+.sec-title em { font-style: italic; color: var(--ink3); }
+
+/* ── REVEAL ── */
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.reveal.pre { opacity: 0; transform: translateY(28px); }
+.reveal.on { opacity: 1; transform: translateY(0); }
+
+/* ── EXPERIENCE ── */
+.exp-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  padding: 44px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.exp-aside { padding-right: 36px; }
+
+.exp-date {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: .04em;
+  margin-bottom: 7px;
+}
+.exp-company {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.exp-loc { font-size: 11px; color: var(--ink3); }
+
+.exp-role {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.3px;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.exp-intro {
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.72;
+  margin-bottom: 18px;
+  max-width: 620px;
+}
+
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 20px;
+}
+.exp-bullets li {
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.65;
+  display: flex;
+  gap: 12px;
+}
+.exp-bullets li::before {
+  content: '—';
+  color: var(--ink4);
+  flex-shrink: 0;
+}
+
+.exp-ref {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent2);
+  padding-bottom: 1px;
+  margin-bottom: 18px;
+  transition: border-color .2s;
+}
+.exp-ref:hover { border-color: var(--accent); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+.chip {
+  font-size: 11px;
+  color: var(--ink3);
+  border: 1px solid var(--rule);
+  background: var(--paper2);
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+
+/* ── TESTIMONIALS CAROUSEL ── */
+.testimonials-wrap {
+  margin-top: 56px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--paper2);
+}
+
+.testimonials-inner {
+  display: flex;
+  transition: transform .6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testi-slide {
+  min-width: 100%;
+  padding: 40px 44px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+}
+
+.testi-quote {
+  font-family: var(--display);
+  font-size: 17px;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.testi-quote::before {
+  content: '\201C';
+  font-size: 48px;
+  color: var(--accent2);
+  font-family: var(--display);
+  line-height: 0;
+  vertical-align: -18px;
+  margin-right: 4px;
+}
+
+.testi-cite { font-size: 12px; color: var(--ink3); }
+.testi-cite strong { color: var(--ink); font-weight: 500; display: block; margin-bottom: 2px; }
+
+.testi-avatar {
+  width: 68px; height: 68px;
+  border-radius: 50%;
+  background: var(--paper3);
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink3);
+  flex-shrink: 0;
+}
+
+.testi-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 44px 16px;
+  border-top: 1px solid var(--rule);
+}
+
+.testi-dots { display: flex; gap: 6px; }
+.testi-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--paper3);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  transition: background .3s, border-color .3s;
+}
+.testi-dot.active { background: var(--accent); border-color: var(--accent); }
+
+.testi-arrows { display: flex; gap: 8px; }
+.testi-btn {
+  width: 30px; height: 30px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--ink3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+}
+.testi-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* ── SKILLS ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-col {
+  padding: 30px 28px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.skill-col:nth-child(3n) { border-right: none; }
+.skill-col:nth-last-child(-n+3) { border-bottom: none; }
+
+.skill-col-title {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  margin-bottom: 18px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.skill-entry {
+  font-size: 13px;
+  color: var(--ink2);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--paper3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color .18s;
+}
+.skill-entry:last-child { border-bottom: none; }
+.skill-entry:hover { color: var(--ink); }
+.skill-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent2); }
+
+/* ── EDUCATION ── */
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 56px; }
+
+.edu-card {
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 32px;
+  background: var(--paper2);
+}
+
+.edu-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent3);
+  border: 1px solid var(--accent2);
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.edu-degree {
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.25;
+}
+
+.edu-school { font-size: 12px; color: var(--ink3); margin-bottom: 14px; }
+
+.edu-body { font-size: 13px; color: var(--ink2); line-height: 1.68; }
+
+.edu-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent2);
+  padding-bottom: 1px;
+  margin-top: 14px;
+  transition: border-color .2s;
+}
+.edu-link:hover { border-color: var(--accent); }
+
+/* ── CERTS ── */
+.certs-title {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -.3px;
+  margin-bottom: 20px;
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.cert-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 22px;
+  border-bottom: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  text-decoration: none;
+  background: var(--paper);
+  transition: background .18s;
+  cursor: pointer;
+}
+.cert-item:hover { background: var(--paper2); }
+.cert-name { font-size: 13px; color: var(--ink); font-weight: 400; margin-bottom: 2px; }
+.cert-by { font-size: 11px; color: var(--ink3); }
+.cert-arrow { font-size: 13px; color: var(--ink4); opacity: 0; transition: opacity .2s; }
+.cert-item:hover .cert-arrow { opacity: 1; }
+
+.cert-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent3);
+  border: 1px solid var(--accent2);
+  padding: 4px 12px;
+  border-radius: 2px;
+  text-decoration: none;
+  margin-top: 6px;
+  transition: background .2s, border-color .2s;
+  cursor: pointer;
+}
+.cert-btn:hover { background: var(--accent2); border-color: var(--accent); }
+.cert-no-link { color: var(--ink4); font-size: 10px; margin-top: 6px; font-style: italic; }
+
+/* Old projects — subdued */
+.proj-grid-old {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 24px;
+  opacity: .7;
+}
+.proj-grid-old .proj-card {
+  padding: 20px 18px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper2);
+}
+.proj-grid-old .proj-card:hover { background: var(--paper3); opacity: 1; }
+.proj-grid-old .proj-num { font-size: 20px; margin-bottom: 8px; }
+.proj-grid-old .proj-name { font-size: 13px; }
+.proj-grid-old .proj-desc { font-size: 11px; }
+.proj-grid-old .proj-bullets li { font-size: 10px; }
+.old-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  margin-top: 52px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.old-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+/* ── PORTFOLIO ── */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.proj-card {
+  padding: 32px 28px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+  transition: background .2s;
+}
+.proj-card:hover { background: var(--paper2); }
+
+.proj-num {
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--paper3);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.proj-type {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.proj-name {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.proj-desc { font-size: 12px; color: var(--ink2); line-height: 1.65; margin-bottom: 14px; }
+
+.proj-bullets { list-style: none; display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+.proj-bullets li {
+  font-size: 11px;
+  color: var(--ink3);
+  padding-left: 12px;
+  position: relative;
+}
+.proj-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--ink4); }
+
+.proj-link {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent2);
+  padding-bottom: 1px;
+  transition: border-color .2s;
+}
+.proj-link:hover { border-color: var(--accent); }
+
+/* ── CONTACT SECTION ── */
+#contact-section {
+  background: var(--ink);
+  position: relative; z-index: 2;
+}
+
+.contact-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 3rem;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.contact-heading {
+  font-family: var(--display);
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 700;
+  color: var(--paper);
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin-bottom: 18px;
+}
+.contact-heading em { font-style: italic; color: var(--accent); }
+
+.contact-sub {
+  font-size: 14px;
+  color: rgba(250,248,245,.45);
+  line-height: 1.72;
+  margin-bottom: 36px;
+}
+
+.c-list { display: flex; flex-direction: column; }
+.c-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.c-key { font-size: 10px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.25); }
+.c-val { font-size: 13px; color: rgba(250,248,245,.75); }
+.c-val a { color: var(--accent); text-decoration: none; }
+.c-val a:hover { text-decoration: underline; }
+
+.lang-section { }
+.lang-sec-title {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.22);
+  margin-bottom: 26px;
+}
+
+.lang-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.l-name { font-size: 13px; color: rgba(250,248,245,.55); min-width: 96px; }
+.l-track { flex: 1; height: 1px; background: rgba(255,255,255,.08); position: relative; }
+.l-fill { position: absolute; top: 0; left: 0; height: 1px; background: var(--accent); width: 0; transition: width 1.4s cubic-bezier(.16,1,.3,1); }
+.l-level { font-size: 11px; color: rgba(255,255,255,.2); min-width: 48px; text-align: right; }
+
+/* ── FOOTER ── */
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 3rem;
+  border-top: 1px solid rgba(255,255,255,.07);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.f-copy { font-size: 11px; color: rgba(255,255,255,.2); }
+.f-links { display: flex; gap: 20px; }
+.f-links a { font-size: 11px; color: rgba(255,255,255,.28); text-decoration: none; transition: color .2s; }
+.f-links a:hover { color: rgba(255,255,255,.65); }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+
+  #hero { grid-template-columns: 1fr; }
+  .hero-l { padding: 5rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--rule); }
+  .hero-r { padding: 3rem 1.5rem; gap: 28px; }
+  .hero-name { font-size: clamp(48px, 13vw, 80px); letter-spacing: -2px; }
+
+  .section-rule { padding: 12px 1.5rem; }
+  section { padding: 60px 1.5rem; }
+  .sec-head { grid-template-columns: 72px 1fr; }
+  .sec-ghost { font-size: 48px; }
+
+  .exp-item { grid-template-columns: 1fr; gap: 0; }
+  .exp-aside { padding-right: 0; padding-bottom: 14px; border-bottom: 1px solid var(--rule); margin-bottom: 20px; }
+
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .skill-col:nth-child(2n) { border-right: none; }
+  .skill-col:nth-child(3n) { border-right: 1px solid var(--rule); }
+
+  .edu-grid { grid-template-columns: 1fr; }
+
+  .proj-grid { grid-template-columns: 1fr; }
+  .proj-card { border-right: none; }
+  .proj-grid-old { grid-template-columns: 1fr 1fr; }
+
+  .testi-slide { grid-template-columns: 1fr; gap: 20px; }
+  .testi-avatar { display: none; }
+
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; padding: 60px 1.5rem; }
+  .footer-inner { flex-direction: column; gap: 12px; padding: 16px 1.5rem; text-align: center; }
+}
+
+@media (max-width: 540px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  .skill-col:nth-child(3n) { border-right: none; }
+  .stats-row { gap: 0; }
+  .stat { padding-right: 14px; margin-right: 14px; }
+  .stat-val { font-size: 22px; }
+  .proj-grid-old { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Eric <em>Ambriza</em></a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact-section">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://drive.google.com/file/d/1S6Xf4VCKK7lsJqgzJ9W1oBf5QqAhamtO/view?usp=sharing" target="_blank">Download CV</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-l">
+    <div class="hero-eyebrow">Project Manager &amp; Data Analyst</div>
+    <h1 class="hero-name">Eric<em>Ambriza</em></h1>
+    <p class="hero-bio">Graduated with Honors in Computer Science and certified PMP with expertise in project management, data analytics, and digital transformation. Currently managing cross-functional tech projects across Africa and Europe, delivering scalable SaaS, BI, and automation solutions for global organizations.</p>
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-val">$300k+</div>
+        <div class="stat-label">Delivered</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">10+</div>
+        <div class="stat-label">Years exp.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">10</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">PMP</div>
+        <div class="stat-label">Certified</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="info-block">
+      <div class="info-label">Location</div>
+      <div class="info-val">Cape Town, SA</div>
+    </div>
+    <div class="info-block">
+      <div class="info-label">Contact</div>
+      <div class="info-val">
+        <a href="mailto:eric.mauro@hotmail.com">eric.mauro@hotmail.com</a><br>071-892-8364
+      </div>
+    </div>
+    <div class="info-block">
+      <div class="info-label">Key disciplines</div>
+      <div class="pill-row">
+        <span class="pill">Digital Health</span>
+        <span class="pill">Agile / PMP</span>
+        <span class="pill">Data Analytics</span>
+        <span class="pill">Power BI</span>
+        <span class="pill">CommCare</span>
+        <span class="pill">Python</span>
+        <span class="pill">SaaS Delivery</span>
+        <span class="pill">BI Dashboards</span>
+      </div>
+    </div>
+    <div class="info-block">
+      <div class="info-label">Languages</div>
+      <div class="info-val">English (Fluent) · Portuguese (Native) · Changana (Fluent) · Spanish (Basic)</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section-rule">
+  <span class="sr-num">01 — Experience</span>
+  <span class="sr-title">Professional record</span>
+</div>
+
+<section id="experience">
+  <div class="sec-head">
+    <div class="sec-ghost">01</div>
+    <h2 class="sec-title">Work <em>experience</em></h2>
+  </div>
+
+  <!-- DIMAGI -->
+  <div class="exp-item reveal">
+    <div class="exp-aside">
+      <div class="exp-date">2020 — Present</div>
+      <div class="exp-company">Dimagi</div>
+      <div class="exp-loc">Sub-Saharan Africa</div>
+    </div>
+    <div class="exp-body">
+      <div class="exp-role">Technical Project Manager</div>
+      <p class="exp-intro">Led end-to-end digital health projects on CommCare across Sub-Saharan Africa, owning scoping, build, QA, deployment, and partner communication.</p>
+      <ul class="exp-bullets">
+        <li>Oversaw digital health projects end-to-end, coordinating cross-functional teams, schedules, and deliverables as project manager.</li>
+        <li>Translated business requirements into clear technical specs and app designs that fit larger system ecosystems.</li>
+        <li>Scoped work, estimated effort, and aligned teams to scope and timelines using Asana and Jira.</li>
+        <li>Provided technical leadership and produced high-quality technical documentation for delivery teams.</li>
+        <li>Built data reporting solutions and delivered Superset, Power BI/SQL dashboards for decision support.</li>
+        <li>Executed QA test plans across the SDLC to ensure reliable, high-quality releases.</li>
+        <li>Supported implementations and delivered client training across Ethiopia, Kenya, Mozambique, USA, and Uganda.</li>
+        <li>Planned budgets, timelines, risks, and resources; delivered on time and within scope on projects totaling $300k+.</li>
+      </ul>
+      <a class="exp-ref" href="https://ericambriza.vercel.app/recommendation%20letter/Reference%20Letter%20-%20Dimagi.pdf" target="_blank">↗ View Reference Letter</a>
+      <div class="chips">
+        <span class="chip">CommCare</span><span class="chip">Power BI</span><span class="chip">Superset</span>
+        <span class="chip">Jira</span><span class="chip">Asana</span><span class="chip">SQL</span>
+        <span class="chip">Python</span><span class="chip">Agile / Scrum</span><span class="chip">SDLC</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERNOD RICARD / CHIVAS -->
+  <div class="exp-item reveal">
+    <div class="exp-aside">
+      <div class="exp-date">2019</div>
+      <div class="exp-company">Pernod Ricard / Chivas</div>
+      <div class="exp-loc">Mozambique</div>
+    </div>
+    <div class="exp-body">
+      <div class="exp-role">Brand Manager</div>
+      <p class="exp-intro">Delivered brand education sessions and tastings for trade partners to grow advocacy for Chivas portfolio.</p>
+      <ul class="exp-bullets">
+        <li>Delivered brand education sessions and tastings for trade partners to grow advocacy for Chivas portfolio.</li>
+        <li>Managed event calendars, budgets, and supplier contracts across multiple cities to ensure seamless brand activations.</li>
+        <li>Collaborated with regional marketing teams to align activation strategy with national brand objectives and reporting metrics.</li>
+        <li>Led on-site event teams, ensuring logistics, branding, and customer experience met Chivas corporate standards.</li>
+      </ul>
+      <div class="chips">
+        <span class="chip">Brand Management</span><span class="chip">Event Planning</span><span class="chip">Budgeting</span><span class="chip">Stakeholder Mgmt</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- VODACOM MOZAMBIQUE -->
+  <div class="exp-item reveal">
+    <div class="exp-aside">
+      <div class="exp-date">2014 — 2019</div>
+      <div class="exp-company">Vodacom Mozambique</div>
+      <div class="exp-loc">Mozambique</div>
+    </div>
+    <div class="exp-body">
+      <div class="exp-role">Billing Applications Specialist</div>
+      <p class="exp-intro">Operated USSD self-care, registration, recharge, and SMS systems serving 11M+ subscribers; ensured availability and reliability.</p>
+      <ul class="exp-bullets">
+        <li>Owned and optimized USSD applications (self-care, subscriber registration, recharge activation) serving more than 6 million subscribers.</li>
+        <li>Managed the implementation of projects requested by the Marketing team, gathered functional scope directly from Marketing and coordinated full delivery with external development vendors until deployment.</li>
+        <li>Managed inbound/outbound SMS platforms (SMPP) and processing pipelines supporting large-scale subscriber engagement.</li>
+        <li>Administered the CRM platform used by staff to manage millions of subscriber accounts across regions.</li>
+        <li>Ran the billing file-transfer system across VAS/Billing using SFTP, ensuring accurate and timely data exchange.</li>
+        <li>Served as technical lead on complex projects, driving requirements, analysis, and web-service design for mission-critical telecom services.</li>
+        <li>Handled daily operations and incident resolution; improved integrations, databases, and code quality to enhance service reliability.</li>
+        <li>Worked across Java USSD, GlassFish/Payara web services, Oracle PL/SQL, and Linux environments for enterprise-scale deployments.</li>
+        <li>Acted as primary contact for IT Security, Audit, and IT Governance deliverables.</li>
+      </ul>
+      <a class="exp-ref" href="https://ericambriza.vercel.app/recommendation%20letter/Reference%20Letter%20-%20Vodacom%20Mozambique.pdf" target="_blank">↗ View Reference Letter</a>
+      <div class="chips">
+        <span class="chip">USSD</span><span class="chip">Oracle PL/SQL</span><span class="chip">Java</span><span class="chip">CRM</span>
+        <span class="chip">SMPP/SMS</span><span class="chip">Linux</span><span class="chip">SFTP/Billing</span><span class="chip">IT Governance</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUSINESS CONNEXION @ MOZAL -->
+  <div class="exp-item reveal">
+    <div class="exp-aside">
+      <div class="exp-date">2013</div>
+      <div class="exp-company">Business Connexion @ Mozal</div>
+      <div class="exp-loc">Mozambique</div>
+    </div>
+    <div class="exp-body">
+      <div class="exp-role">Desktop Deployment Engineer</div>
+      <p class="exp-intro">Deployed Desktop images via PXE/media and migrated users from Windows XP to Windows 7 with on-site support and training.</p>
+      <ul class="exp-bullets">
+        <li>Delivered the 1Desktop Project at Mozal Smelter under the BHP Billiton initiative, providing an agile, secure, and scalable enterprise desktop service across all business sectors.</li>
+        <li>Deployed 1Desktop images via PXE boot and media builds, ensuring smooth migration from Windows XP to Windows 7 for hundreds of end users.</li>
+        <li>Directly engaged with the Mozal user base, acting as the project's main technical contact and ensuring seamless user experience during transition.</li>
+        <li>Reduced total cost of ownership (TCO) and standardized desktop technologies and operations to improve productivity and simplify future transitions.</li>
+        <li>Ensured timely delivery of workstation rollouts and maintained strong communication with stakeholders to minimize disruption.</li>
+        <li>Identified and implemented improvements in desktop deployment processes through innovative problem-solving and process refinement.</li>
+      </ul>
+      <a class="exp-ref" href="https://ericambriza.vercel.app/recommendation%20letter/Reference%20Letter%20-%20Mozal.pdf" target="_blank">↗ View Reference Letter</a>
+      <div class="chips">
+        <span class="chip">Desktop Deployment</span><span class="chip">PXE Boot</span><span class="chip">Windows Migration</span>
+        <span class="chip">BHP Billiton</span><span class="chip">IT Infrastructure</span><span class="chip">End-user Support</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS CAROUSEL -->
+  <div class="testimonials-wrap reveal">
+    <div class="testimonials-inner" id="tInner">
+
+      <div class="testi-slide">
+        <div>
+          <p class="testi-quote">Eric's ability to manage complex digital transformation projects with precision and empathy made a measurable impact on every initiative we worked on. His structured approach, paired with strong communication, consistently drove success across global teams.</p>
+          <div class="testi-cite">
+            <strong>Lourena do Rosario</strong>
+            Project Manager at Meta · Worked together at Dimagi
+          </div>
+        </div>
+        <div class="testi-avatar">LR</div>
+      </div>
+
+      <div class="testi-slide">
+        <div>
+          <p class="testi-quote">Eric combines technical understanding with business acumen in a rare way. He's a project leader who understands system design, delivery, and stakeholder alignment, which makes him a trusted partner in both engineering and strategic discussions.</p>
+          <div class="testi-cite">
+            <strong>Marcelo Dauane</strong>
+            Senior Engineering Manager at MoonPay · Worked together at Freelance
+          </div>
+        </div>
+        <div class="testi-avatar">MD</div>
+      </div>
+
+      <div class="testi-slide">
+        <div>
+          <p class="testi-quote">At Vodacom, Eric played a key role in aligning technology and operations to deliver major infrastructure and digital initiatives on time. His leadership, discipline, and results-oriented mindset made him one of the most reliable project managers on our team.</p>
+          <div class="testi-cite">
+            <strong>Pedro Fernandes</strong>
+            Executive Head Network &amp; Infrastructure Planning Engineering at Vodacom · Worked together at Vodacom
+          </div>
+        </div>
+        <div class="testi-avatar">PF</div>
+      </div>
+
+      <div class="testi-slide">
+        <div>
+          <p class="testi-quote">Eric's professionalism and deep technical knowledge set him apart. At Mozal, he improved system processes and data workflows, ensuring operational efficiency and reliable information management across departments.</p>
+          <div class="testi-cite">
+            <strong>Chris Meyer</strong>
+            Information Manager at Mozal · Worked together at Mozal
+          </div>
+        </div>
+        <div class="testi-avatar">CM</div>
+      </div>
+
+    </div>
+    <div class="testi-nav">
+      <div class="testi-dots" id="tDots"></div>
+      <div class="testi-arrows">
+        <button class="testi-btn" id="tPrev">←</button>
+        <button class="testi-btn" id="tNext">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div class="section-rule">
+  <span class="sr-num">02 — Skills</span>
+  <span class="sr-title">Technical &amp; professional</span>
+</div>
+
+<section id="skills">
+  <div class="sec-head">
+    <div class="sec-ghost">02</div>
+    <h2 class="sec-title">Skills &amp; <em>tools</em></h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-col reveal">
+      <div class="skill-col-title">Tech stack</div>
+      <div class="skill-entry">Python <span class="skill-dot"></span></div>
+      <div class="skill-entry">PL/SQL <span class="skill-dot"></span></div>
+      <div class="skill-entry">JavaScript <span class="skill-dot"></span></div>
+      <div class="skill-entry">Linux <span class="skill-dot"></span></div>
+      <div class="skill-entry">Git <span class="skill-dot"></span></div>
+    </div>
+    <div class="skill-col reveal">
+      <div class="skill-col-title">Data &amp; BI</div>
+      <div class="skill-entry">Power BI <span class="skill-dot"></span></div>
+      <div class="skill-entry">Apache Superset <span class="skill-dot"></span></div>
+      <div class="skill-entry">Tableau <span class="skill-dot"></span></div>
+      <div class="skill-entry">MySQL <span class="skill-dot"></span></div>
+    </div>
+    <div class="skill-col reveal">
+      <div class="skill-col-title">Project management</div>
+      <div class="skill-entry">Agile <span class="skill-dot"></span></div>
+      <div class="skill-entry">Scrum <span class="skill-dot"></span></div>
+      <div class="skill-entry">PMP <span class="skill-dot"></span></div>
+      <div class="skill-entry">Jira <span class="skill-dot"></span></div>
+      <div class="skill-entry">Asana <span class="skill-dot"></span></div>
+      <div class="skill-entry">ClickUp <span class="skill-dot"></span></div>
+      <div class="skill-entry">Confluence <span class="skill-dot"></span></div>
+    </div>
+    <div class="skill-col reveal">
+      <div class="skill-col-title">Digital health &amp; systems</div>
+      <div class="skill-entry">CommCare <span class="skill-dot"></span></div>
+      <div class="skill-entry">CRM integration <span class="skill-dot"></span></div>
+    </div>
+    <div class="skill-col reveal">
+      <div class="skill-col-title">Soft skills</div>
+      <div class="skill-entry">Leadership &amp; Team Management <span class="skill-dot"></span></div>
+      <div class="skill-entry">Cross-Cultural Communication <span class="skill-dot"></span></div>
+      <div class="skill-entry">Problem Solving &amp; Critical Thinking <span class="skill-dot"></span></div>
+      <div class="skill-entry">Stakeholder Engagement <span class="skill-dot"></span></div>
+    </div>
+    <div class="skill-col reveal">
+      <div class="skill-col-title">Languages</div>
+      <div class="skill-entry">English — Fluent <span class="skill-dot"></span></div>
+      <div class="skill-entry">Portuguese — Native <span class="skill-dot"></span></div>
+      <div class="skill-entry">Changana — Fluent <span class="skill-dot"></span></div>
+      <div class="skill-entry">Spanish — Basic <span class="skill-dot"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<div class="section-rule">
+  <span class="sr-num">03 — Education</span>
+  <span class="sr-title">Academic background</span>
+</div>
+
+<section id="education">
+  <div class="sec-head">
+    <div class="sec-ghost">03</div>
+    <h2 class="sec-title">Education &amp; <em>certifications</em></h2>
+  </div>
+
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-badge">Graduated with Honors</div>
+      <div class="edu-degree">B.Sc. (Hons) Computer Science</div>
+      <div class="edu-school">ISCTEM — Mozambique · 2010–2014</div>
+      <p class="edu-body">Programming, computer networks, databases, information security and systems design. A four-year program developing strong technical and analytical skills in computing, electronics, and communication systems — combining theory and hands-on learning with international collaboration from visiting professors.</p>
+      <a class="edu-link" href="https://ericambriza.vercel.app/certification/Eric%20Certificate%20-%20Computer%20Science.pdf" target="_blank">↗ View Degree Certification</a>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-badge">Postgraduate · Incomplete</div>
+      <div class="edu-degree">MBA in Oil and Gas</div>
+      <div class="edu-school">ISCTEM — Mozambique · 2016</div>
+      <p class="edu-body">The MBA in Business Management of Petroleum &amp; Gas was created to meet the growing demands of Mozambique's expanding hydrocarbons sector. Core modules cover upstream and downstream operations, oil economics, contracts, safety and environmental management, geopolitics, and the renewable energy transition.</p>
+    </div>
+  </div>
+
+  <div class="certs-title">Certifications</div>
+  <div class="certs-grid">
+    <div class="cert-item reveal" onclick="window.open('https://www.credly.com/badges/11fac0e0-9459-4789-aba3-9fdf7b6910ee/linked_in_profile','_blank')">
+      <div><div class="cert-name">Project Management Professional (PMP)</div><div class="cert-by">Project Management Institute</div><a class="cert-btn" href="https://www.credly.com/badges/11fac0e0-9459-4789-aba3-9fdf7b6910ee/linked_in_profile" target="_blank">↗ View Certification</a></div>
+    </div>
+    <div class="cert-item reveal" onclick="window.open('https://www.credly.com/badges/0abd5e6c-ca34-4b6c-a298-0a9591726620/linked_in_profile','_blank')">
+      <div><div class="cert-name">Google Project Management Professional Certificate</div><div class="cert-by">Coursera</div><a class="cert-btn" href="https://www.credly.com/badges/0abd5e6c-ca34-4b6c-a298-0a9591726620/linked_in_profile" target="_blank">↗ View Certification</a></div>
+    </div>
+    <div class="cert-item reveal">
+      <div><div class="cert-name">Microsoft Power BI: PL-300 Certification Prep (Data Analyst)</div><div class="cert-by">Udemy</div><span class="cert-no-link">Certificate stored locally</span></div>
+    </div>
+    <div class="cert-item reveal" onclick="window.open('https://learn.deeplearning.ai/accomplishments/60524dbf-7170-481d-ae37-a16ff0d18117?usp=sharing','_blank')">
+      <div><div class="cert-name">ChatGPT Prompt Engineering for Developers</div><div class="cert-by">DeepLearning.AI</div><a class="cert-btn" href="https://learn.deeplearning.ai/accomplishments/60524dbf-7170-481d-ae37-a16ff0d18117?usp=sharing" target="_blank">↗ View Certification</a></div>
+    </div>
+    <div class="cert-item reveal" onclick="window.open('https://www.coursera.org/account/accomplishments/specialization/QODSWCLCPBM2','_blank')">
+      <div><div class="cert-name">Generative AI for Project Managers</div><div class="cert-by">SkillUP</div><a class="cert-btn" href="https://www.coursera.org/account/accomplishments/specialization/QODSWCLCPBM2" target="_blank">↗ View Certification</a></div>
+    </div>
+    <div class="cert-item reveal" onclick="window.open('https://verify.skilljar.com/c/v2gzoznuvzhz','_blank')">
+      <div><div class="cert-name">ClickUp Expert Certificate of Completion</div><div class="cert-by">ClickUp</div><a class="cert-btn" href="https://verify.skilljar.com/c/v2gzoznuvzhz" target="_blank">↗ View Certification</a></div>
+    </div>
+    <div class="cert-item reveal" onclick="window.open('https://www.coursera.org/account/accomplishments/professional-cert/certificate/JL5NRNOAK7R1','_blank')">
+      <div><div class="cert-name">Generative AI for Software Development</div><div class="cert-by">DeepLearning.AI</div><a class="cert-btn" href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/JL5NRNOAK7R1" target="_blank">↗ View Certification</a></div>
+    </div>
+    <div class="cert-item reveal" onclick="window.open('https://coursera.org/share/7339d986a9aa18df58daadf40dc656e6','_blank')">
+      <div><div class="cert-name">Marketing Analytics Foundation</div><div class="cert-by">Meta</div><a class="cert-btn" href="https://coursera.org/share/7339d986a9aa18df58daadf40dc656e6" target="_blank">↗ View Certification</a></div>
+    </div>
+    <div class="cert-item reveal" onclick="window.open('https://confirm.udacity.com/your-nanodegree-id','_blank')">
+      <div><div class="cert-name">Nanodegree in Data Analysis</div><div class="cert-by">Udacity</div><a class="cert-btn" href="https://confirm.udacity.com/your-nanodegree-id" target="_blank">↗ View Certification</a></div>
+    </div>
+    <div class="cert-item reveal">
+      <div><div class="cert-name">MySQL &amp; Linux Intermediate</div><div class="cert-by">Cenfoss</div><span class="cert-no-link">No link available</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<div class="section-rule">
+  <span class="sr-num">04 — Portfolio</span>
+  <span class="sr-title">Selected work</span>
+</div>
+
+<section id="portfolio">
+  <div class="sec-head">
+    <div class="sec-ghost">04</div>
+    <h2 class="sec-title">Selected <em>work</em></h2>
+  </div>
+  <div class="proj-grid">
+    <div class="proj-card reveal">
+      <div class="proj-num">01</div>
+      <div class="proj-type">Live · Featured</div>
+      <div class="proj-name">Global Environmental Impact Calculator</div>
+      <p class="proj-desc">Interactive calculator that transforms raw activity inputs into clear environmental indicators. Users enter data, compare scenarios, and read results in responsive charts that surface trends, hot spots, and trade-offs for faster, data-driven decisions.</p>
+      <ul class="proj-bullets">
+        <li>Real-time calculations for emissions and resource-use metrics</li>
+        <li>Interactive Chart.js visuals (bar, line, pie) with side-by-side scenario comparison</li>
+        <li>Config-driven chart options with input normalization for consistent unit math</li>
+        <li>Memoized calculations and code splitting for faster initial load</li>
+        <li>React · Chart.js · Tailwind — components/, hooks/, utils/ architecture</li>
+      </ul>
+      <a class="proj-link" href="https://global-environmental-impact-calcula.vercel.app/" target="_blank">Live demo ↗</a>
+      &nbsp;&nbsp;
+      <a class="proj-link" href="https://github.com/eambriza/global-environmental-impact-calculator" target="_blank">View code ↗</a>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-num">02</div>
+      <div class="proj-type">App · Live</div>
+      <div class="proj-name">PMP Drill Coach</div>
+      <p class="proj-desc">Project Management Professional exam preparation tool featuring interactive quizzes, progress tracking, and comprehensive study materials. Built to help PMP candidates master exam concepts through hands-on practice and detailed performance analytics.</p>
+      <ul class="proj-bullets">
+        <li>Interactive quiz system with 1,324 preloaded PMP questions and randomization</li>
+        <li>Progress tracking and performance analytics dashboard</li>
+        <li>Comprehensive study materials by knowledge area</li>
+        <li>Timed practice exams simulating real PMP conditions</li>
+        <li>Upload custom questions via .xlsx or .csv</li>
+        <li>React · Node.js + Express · MongoDB · RESTful API with JWT auth</li>
+      </ul>
+      <a class="proj-link" href="https://pmp-coach-teal.vercel.app/" target="_blank">Live demo ↗</a>
+      &nbsp;&nbsp;
+      <a class="proj-link" href="https://github.com/eambriza/pmp-drill-coach" target="_blank">View code ↗</a>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-num">03</div>
+      <div class="proj-type">App · Live</div>
+      <div class="proj-name">Wing Fantasy</div>
+      <p class="proj-desc">Interactive mobile fantasy sports platform for Red Bull featuring team management, scoring system, and competitive leagues. Players draft their favorite wing flavors, track performance metrics, and compete in seasonal tournaments with real-time leaderboards.</p>
+      <ul class="proj-bullets">
+        <li>Team drafting system with flavor selection and weekly matchups</li>
+        <li>Real-time scoring and leaderboard updates</li>
+        <li>Seasonal leagues with playoff brackets and head-to-head scoring</li>
+        <li>Player statistics, performance tracking, and trade system</li>
+        <li>Next.js · TypeScript · React · API routes for backend functionality</li>
+      </ul>
+      <a class="proj-link" href="https://wingfantasy.vercel.app/" target="_blank">Live demo ↗</a>
+      &nbsp;&nbsp;
+      <a class="proj-link" href="https://github.com/eambriza/wingfantasy" target="_blank">View code ↗</a>
+    </div>
+  </div>
+
+  <div class="old-label">Older projects</div>
+
+  <div class="proj-grid-old">
+    <div class="proj-card reveal">
+      <div class="proj-num">04</div>
+      <div class="proj-type">React Component</div>
+      <div class="proj-name">Image Slider</div>
+      <p class="proj-desc">A responsive React image carousel that fetches and displays dynamic content using Axios, styled with Material UI for a clean interface.</p>
+      <ul class="proj-bullets">
+        <li>Built with React and Axios for dynamic image retrieval</li>
+        <li>Material UI for responsive design and layout</li>
+        <li>Local Node server for data simulation</li>
+        <li>Demonstrates API integration and component reusability</li>
+      </ul>
+      <a class="proj-link" href="https://github.com/eambriza/imageslider_axios" target="_blank">View code ↗</a>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-num">05</div>
+      <div class="proj-type">Data Analysis · R</div>
+      <div class="proj-name">Wine Quality</div>
+      <p class="proj-desc">An R-based data analysis exploring the physicochemical factors influencing wine quality using statistical methods and visualization.</p>
+      <ul class="proj-bullets">
+        <li>Analyzes red wine quality dataset with R Markdown</li>
+        <li>Correlation matrices and predictive modeling</li>
+        <li>Visualizations of key quality indicators</li>
+      </ul>
+      <a class="proj-link" href="https://github.com/eambriza/Wine-Quality---R" target="_blank">View code ↗</a>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-num">06</div>
+      <div class="proj-type">Next.js · Web</div>
+      <div class="proj-name">Coronagora</div>
+      <p class="proj-desc">A web application built using Next.js for the Coronagora project, focused on clean architecture and modular design.</p>
+      <ul class="proj-bullets">
+        <li>Next.js routing and server-side rendering</li>
+        <li>Components, pages, and custom styling</li>
+      </ul>
+      <a class="proj-link" href="https://github.com/eambriza/coronagora" target="_blank">View code ↗</a>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-num">07</div>
+      <div class="proj-type">Python · Reporting</div>
+      <div class="proj-name">Python Reports</div>
+      <p class="proj-desc">A collection of Python notebooks and scripts for processing, analyzing, and visualizing data across multiple domains.</p>
+      <ul class="proj-bullets">
+        <li>pandas, NumPy, and Matplotlib workflows</li>
+        <li>Automated reporting in Jupyter and HTML formats</li>
+        <li>Reproducible analytical storytelling</li>
+      </ul>
+      <a class="proj-link" href="https://github.com/eambriza/imageslider_axios" target="_blank">View code ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact-section">
+  <div class="contact-inner">
+    <div>
+      <h2 class="contact-heading">Let's ship<br><em>great work.</em></h2>
+      <p class="contact-sub">✦ PM who codes and builds ✦ Data meets real choices ✦ Systems that scale well ✦ Clear scope always wins ✦ Own the end to end ✦ Simple beats clever tricks ✦ Fail fast, fix it faster</p>
+      <div class="c-list">
+        <div class="c-row"><span class="c-key">Email</span><span class="c-val"><a href="mailto:eric.mauro@hotmail.com">eric.mauro@hotmail.com</a></span></div>
+        <div class="c-row"><span class="c-key">Phone</span><span class="c-val">071-892-8364</span></div>
+        <div class="c-row"><span class="c-key">Location</span><span class="c-val">Cape Town, SA</span></div>
+        <div class="c-row"><span class="c-key">GitHub</span><span class="c-val"><a href="https://github.com/eambriza?tab=repositories" target="_blank">github.com/eambriza</a></span></div>
+        <div class="c-row"><span class="c-key">Portfolio</span><span class="c-val"><a href="https://ericambriza.vercel.app" target="_blank">ericambriza.vercel.app</a></span></div>
+      </div>
+    </div>
+    <div class="lang-section">
+      <div class="lang-sec-title">Languages</div>
+      <div class="lang-row">
+        <span class="l-name">English</span>
+        <div class="l-track"><div class="l-fill" data-w="95"></div></div>
+        <span class="l-level">Fluent</span>
+      </div>
+      <div class="lang-row">
+        <span class="l-name">Portuguese</span>
+        <div class="l-track"><div class="l-fill" data-w="100"></div></div>
+        <span class="l-level">Native</span>
+      </div>
+      <div class="lang-row">
+        <span class="l-name">Changana</span>
+        <div class="l-track"><div class="l-fill" data-w="90"></div></div>
+        <span class="l-level">Fluent</span>
+      </div>
+      <div class="lang-row">
+        <span class="l-name">Spanish</span>
+        <div class="l-track"><div class="l-fill" data-w="35"></div></div>
+        <span class="l-level">Basic</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-inner">
+    <span class="f-copy">© 2025 Eric Ambriza. All rights reserved.</span>
+    <div class="f-links">
+      <a href="https://github.com/eambriza?tab=repositories" target="_blank">GitHub</a>
+      <a href="https://ericambriza.vercel.app" target="_blank">Portfolio</a>
+      <a href="mailto:eric.mauro@hotmail.com">Email</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── TICKER ──
+const words = [
+  'Ship great work on time','PM who codes and builds','Data meets real choices',
+  'Systems that scale well','Clear scope always wins','Users over ego come first',
+  'Own the end to end','Simple beats clever tricks','Fail fast, fix it faster','Launch, learn, iterate'
+];
+const t = document.getElementById('ticker');
+t.innerHTML = [...words,...words].map(w=>`<span class="ti">${w}</span>`).join('');
+
+// ── SCROLL REVEAL — add .pre class first, then animate in ──
+const revealEls = document.querySelectorAll('.reveal');
+// Mark all as pre-animation state after a brief delay so initial paint shows them
+setTimeout(() => {
+  revealEls.forEach(el => el.classList.add('pre'));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => {
+          e.target.classList.remove('pre');
+          e.target.classList.add('on');
+        }, i * 60);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.04, rootMargin: '0px 0px -20px 0px' });
+  revealEls.forEach(el => io.observe(el));
+}, 300);
+
+// ── TESTIMONIAL CAROUSEL ──
+const inner = document.getElementById('tInner');
+const slides = inner.querySelectorAll('.testi-slide');
+const dotsEl = document.getElementById('tDots');
+let cur = 0;
+let timer;
+
+slides.forEach((_, i) => {
+  const d = document.createElement('button');
+  d.className = 'testi-dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => goTo(i);
+  dotsEl.appendChild(d);
+});
+
+function goTo(n) {
+  slides[cur].style.opacity = '0';
+  cur = (n + slides.length) % slides.length;
+  inner.style.transform = `translateX(-${cur * 100}%)`;
+  slides[cur].style.opacity = '1';
+  dotsEl.querySelectorAll('.testi-dot').forEach((d,i) => d.classList.toggle('active', i === cur));
+  resetTimer();
+}
+
+function resetTimer() {
+  clearInterval(timer);
+  timer = setInterval(() => goTo(cur + 1), 3500);
+}
+
+document.getElementById('tPrev').onclick = () => goTo(cur - 1);
+document.getElementById('tNext').onclick = () => goTo(cur + 1);
+resetTimer();
+
+// ── LANGUAGE BARS ──
+const langIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.l-fill').forEach(b => b.style.width = b.dataset.w + '%');
+      langIO.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+const ls = document.querySelector('.lang-section');
+if (ls) langIO.observe(ls);
+</script>
+</body>
+</html>
