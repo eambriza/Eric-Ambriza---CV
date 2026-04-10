@@ -1,9 +1,10 @@
+import fs from 'fs';
+import path from 'path';
+
+const cvContent = fs.readFileSync(path.join(process.cwd(), 'public', 'eric-ambriza-cv-final_3.html'), 'utf8');
+
 export default function Home() {
   return (
-    <iframe
-      src="https://raw.githubusercontent.com/eambriza/Eric-Ambriza---CV/main/public/eric-ambriza-cv-final_3.html"
-      style={{ width: '100%', height: '100vh', border: 'none' }}
-      title="Eric Ambriza CV"
-    />
+    <div dangerouslySetInnerHTML={{ __html: cvContent }} />
   );
 }
