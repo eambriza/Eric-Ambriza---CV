@@ -49,15 +49,15 @@ export const personalInfo: PersonalInfo = {
   title: 'Project Manager & Data Analyst',
   bio: "Graduated with Honors in Computer Science and certified PMP with expertise in project management, data analytics, and digital transformation. Currently managing cross-functional tech projects across Africa and Europe, delivering scalable SaaS, BI, and automation solutions for global organizations.",
   email: 'eric.mauro@hotmail.com',
-  phone: '071-892-8364',
+  phone: '+351 926 579 650',
   github: 'https://github.com/eambriza?tab=repositories',
   resumeDownload:
     'https://drive.google.com/file/d/1S6Xf4VCKK7lsJqgzJ9W1oBf5QqAhamtO/view?usp=sharing',
   address: {
     street: '',  
-    city: 'Cape Town',
-    state: 'Western Cape',
-    zip: '8005',
+    city: 'Lisbon',
+    state: 'Portugal',
+    zip: '',
   },
 };
 
